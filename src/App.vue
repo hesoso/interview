@@ -7,7 +7,7 @@ import { RouterLink, RouterView } from 'vue-router'
     <section class="logo"></section>
     <nav>
       <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">项目作品</RouterLink>
+      <RouterLink to="/work">项目作品</RouterLink>
       <RouterLink to="/mine">我的简历</RouterLink>
     </nav>
   </header>

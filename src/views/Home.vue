@@ -3,6 +3,7 @@ import Button from '@/components/Button.vue'
 import Arrow from '@/components/Arrow.vue'
 import TodoList from './components/TodoList.vue'
 import ShowTime from './components/ShowTime.vue'
+import Footer from './components/Footer.vue'
 </script>
 
 <template>
@@ -21,6 +22,7 @@ import ShowTime from './components/ShowTime.vue'
     </Button>
     <TodoList style="margin-top: 103px;" />
     <ShowTime />
+    <Footer />
   </div>
 </template>
 
@@ -28,7 +30,6 @@ import ShowTime from './components/ShowTime.vue'
 .home_wrapper {
   position: relative;
   margin-top: 128px;
-  padding-bottom: 100px;
   display: flex;
 }
 

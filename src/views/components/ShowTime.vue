@@ -49,9 +49,9 @@ const skillList = [
         desc: '目前热火的AIGC产品，包括SD、MJ 都已经熟练掌握'
     },
     {
-        src: '/src/assets/images/skill_2.png',
+        src: '/src/assets/images/skill_4.png',
         tag: 'D',
-        title: '平面设计',
+        title: '平面设计能力',
         desc: '可以独立完成插画工作，以及参与产品 前期界面视觉探索和DEMO实现'
     },
 ]
@@ -62,8 +62,8 @@ const skillList = [
         <div class="dfc ai_center">
             <MaskTitle textUrl="/src/assets/images/text_1.png">
                 <div class="desc_1">
-                我相信每一个界面背后都有一个故事，而我的任务是让这个故事为用户所理解并喜爱。从直观的导航到视觉的愉悦，我始终坚持<span
-                    class="c_blue">以用户为中心</span>，用设计为他们的每一次点击创造价值</div>
+                    我相信每一个界面背后都有一个故事，而我的任务是让这个故事为用户所理解并喜爱。从直观的导航到视觉的愉悦，我始终坚持<span
+                        class="c_blue">以用户为中心</span>，用设计为他们的每一次点击创造价值</div>
             </MaskTitle>
         </div>
         <div class="df mt90">
@@ -89,13 +89,8 @@ const skillList = [
                 这些项目展示了我在UI/UX设计中的多样化探索，涵盖了从用户调研到界面设计的完整流程，每个项目都体现了我在提升用户体验和解决设计挑战方面的独特思路
             </div>
             <div class="project_list">
-                <swiper
-                    :slidesPerView="'auto'"
-                    :centeredSlides="true"
-                    :spaceBetween="140"
-                    :loop="true"
-                    class="mySwiper"
-                >
+                <swiper :slidesPerView="'auto'" :centeredSlides="true" :spaceBetween="140" :loop="true"
+                    class="mySwiper">
                     <swiper-slide v-for="(item, index) in projectList" :key="index">
                         <img class="project_item" :src="item" draggable="false">
                     </swiper-slide>
@@ -105,27 +100,19 @@ const skillList = [
         <MaskTitle textUrl="/src/assets/images/text_2.png">
             <div class="desc_1">
                 我对设计技术非常痴迷，每一次掌握新技能都让我感受到非常的开心。我始终相信，持续学习和不断创新是成为卓越设计师的关键，这种<span
-                class="c_blue">热爱驱动</span>我在每一个项目中都追求极致的用户体验</div>
+                    class="c_blue">热爱驱动</span>我在每一个项目中都追求极致的用户体验</div>
         </MaskTitle>
         <div class="skill_list">
-            <swiper
-                :effect="'coverflow'"
-                :slidesPerView="'auto'"
-                :spaceBetween="22"
-                :centeredSlides="true"
-                :grabCursor="true"
-                :pagination="{
+            <swiper :initialSlide="1" :effect="'coverflow'" :slidesPerView="'auto'" :spaceBetween="22"
+                :centeredSlides="true" :grabCursor="true" :pagination="{
                     clickable: true,
-                }"
-                :coverflowEffect="{
+                }" :coverflowEffect="{
                     rotate: 50,
                     stretch: 0,
                     depth: 100,
                     modifier: 1,
                     slideShadows: true,
-                }"
-                :modules="modules"
-            >
+                }" :modules="modules">
                 <swiper-slide v-for="(item, index) in skillList" :key="index">
                     <SkillCard :info="item" />
                 </swiper-slide>
@@ -136,21 +123,21 @@ const skillList = [
                 <MaskTitle textUrl="/src/assets/images/text_3.png" :pure="true" />
                 <div class="btn_box df jc_center">
                     <Button :styles="{
-                        width: '126px',
-                        height: '48px',
-                        background: '#616197',
-                        borderRadius: '8px',
-                        fontSize: '16px'
-                    }">
+                    width: '126px',
+                    height: '48px',
+                    background: '#616197',
+                    borderRadius: '8px',
+                    fontSize: '16px'
+                }">
                         <i data-feather="plus"></i>
                         <span class="ml5">添加微信</span>
                     </Button>
                     <Button class="ml16" :styles="{
-                        width: '132px',
-                        height: '48px',
-                        borderRadius: '8px',
-                        fontSize: '16px'
-                    }">
+                    width: '132px',
+                    height: '48px',
+                    borderRadius: '8px',
+                    fontSize: '16px'
+                }">
                         <i data-feather="chevrons-up"></i>
                         <span class="ml5">顶部看作品</span>
                     </Button>
@@ -208,12 +195,13 @@ const skillList = [
 .ctrl_box {
     margin: 0 20px;
     border-radius: 20px 20px 20px 20px;
-    background: linear-gradient( 180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.07) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.07) 100%);
 }
 
 .ctrl_box .days {
     margin-top: 32px;
 }
+
 .ctrl_box .days .left {
     font-family: JetBrains Mono, JetBrains Mono;
     font-weight: bold;
@@ -223,13 +211,14 @@ const skillList = [
     text-align: left;
     text-transform: none;
 }
+
 .ctrl_box .days .right {
     margin-left: 5px;
     width: 58px;
     font-family: Inter, Inter;
     font-weight: 500;
     font-size: 13px;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.6);
     line-height: 16px;
     text-align: left;
     text-transform: none;
@@ -241,7 +230,7 @@ const skillList = [
     font-family: OPPO Sans, OPPO Sans;
     font-weight: 400;
     font-size: 14px;
-    color: rgba(180,188,208,0.5);
+    color: rgba(180, 188, 208, 0.5);
     text-align: center;
     text-transform: none;
 }
@@ -268,18 +257,19 @@ const skillList = [
     background-repeat: no-repeat;
     background-position: 190px 0
 }
+
 .project_list {
     margin-top: 90px;
     width: 100%;
 }
 
 .project_list .swiper {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .project_list .swiper-slide {
-  width: auto;
+    width: auto;
 }
 
 .project_list .project_item {
@@ -292,23 +282,24 @@ const skillList = [
 }
 
 .skill_list .swiper {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .skill_list .swiper-slide {
-  width: 378px;
+    width: 378px;
 }
 
 .contact {
     background-image: url('@/assets/images/light.png');
     background-size: 975px 600px;
+    background-repeat: no-repeat;
 }
 
 .shadow_box {
-    margin-top: 276px;
+    margin: 276px 0 115px;
     width: 975px;
-    height: 552px;
+    /* height: 552px; */
     background: #000212;
     border-radius: 46% 46% 0 0;
 }
@@ -316,5 +307,4 @@ const skillList = [
 .btn_box {
     margin-top: 64px;
 }
-
 </style>
