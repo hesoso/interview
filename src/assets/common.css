@@ -1,0 +1,35 @@
+.w100 {
+    width: 100%;
+}
+
+.h100 {
+    height: 100%;
+}
+
+.wh100 {
+    width: 100%;
+    height: 100%;
+}
+
+.df {
+    display: flex;
+}
+
+.dfc {
+    display: flex;
+    flex-direction: column;
+}
+
+.df_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jc_center {
+    justify-content: center;
+}
+
+.ai_center {
+    align-items: center;
+}
