@@ -31,25 +31,28 @@ const eduInfo = {
             <input class="wh100" type="text" placeholder="Come explore my story">
         </div>
         <div class="title">基本信息</div>
-        <div class="banner"></div>
+        <div class="banner dfc_center">
+            <div class="name">包金龙- Barry</div>
+            <div class="info">目前是一名三年经验的UI设计师，励志想要做一名顶级的用户体验设计师</div>
+        </div>
         <TodoItem :info="baseInfo" />
         <div class="title">项目经验</div>
         <TodoItem v-for="(item, index) in projectList" :key="index" :info="item" />
         <div class="title">教育背景</div>
         <TodoItem :info="eduInfo" />
         <div class="footer df ai_center">
-            <img class="left" src="@/assets/images/logo_2.png">
+            <img class="left" src="@/assets/images/logo_2.png" draggable="false">
             <div class="right df">
                 <div class="enter df">
                     <span>Open</span>
                     <div class="btn_box df_center">
-                        <img class="wh100" src="@/assets/images/enter.png">
+                        <img class="wh100" src="@/assets/images/enter.png" draggable="false">
                     </div>
                 </div>
                 <div class="actions df">
                     <span>Actions</span>
                     <div class="btn_box df_center">
-                        <img class="wh100" src="@/assets/images/cmd.png">
+                        <img class="wh100" src="@/assets/images/cmd.png" draggable="false">
                     </div>
                     <div class="btn_box df_center iconk">K</div>
                 </div>
@@ -63,6 +66,7 @@ const eduInfo = {
     width: 1018px;
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(60px);
 }
 
 .header {
@@ -76,28 +80,49 @@ const eduInfo = {
     font-weight: 400;
     line-height: 33px;
     text-align: left;
-    font-style: normal;
     text-transform: none;
     color: #fff;
 }
 
 .title {
-    padding: 0 30px;
+    padding-left: 22px;
     height: 49px;
     font-family: Inter, Inter;
     font-weight: normal;
     font-size: 18px;
     color: rgba(255, 255, 255, 0.6);
     line-height: 49px;
-    font-style: normal;
     text-transform: none;
 }
 
 .banner {
-    margin: 0 24px;
+    margin: 0 14px;
     height: 142px;
     background: rgba(25, 25, 25, .5);
     border-radius: 11px;
+    background-image: url('@/assets/images/banner.png');
+    background-size: 100% 100%;
+}
+.banner .name {
+    width: 511px;
+    height: 34px;
+    font-family: PingFang SC, PingFang SC;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    text-transform: none;
+    color: #fff;
+}
+.banner .info {
+    width: 350px;
+    font-family: OPPO Sans, OPPO Sans;
+    font-weight: 500;
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    line-height: 22px;
+    text-align: center;
+    text-transform: none;
 }
 
 .btn_box {
@@ -127,7 +152,6 @@ const eduInfo = {
     color: #FFFFFF;
     line-height: 22px;
     text-align: right;
-    font-style: normal;
     text-transform: none;
 }
 
@@ -144,7 +168,6 @@ const eduInfo = {
     color: rgba(255, 255, 255, 0.6);
     line-height: 22px;
     text-align: right;
-    font-style: normal;
     text-transform: none;
 }
 
@@ -162,7 +185,6 @@ const eduInfo = {
     line-height: 14px;
     letter-spacing: 1px;
     text-align: center;
-    font-style: normal;
     text-transform: none;
 }
 </style>

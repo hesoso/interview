@@ -7,7 +7,7 @@ const info = props.info
     <div class="todoitem_wrapper df">
         <div class="left df_center">
             <div class="icon">
-                <img class="wh100" :src="info.src">
+                <img class="wh100" :src="info.src" draggable="false">
             </div>
             <div class="title">{{ info.title }}</div>
             <div class="desc">{{ info.desc }}</div>
@@ -18,7 +18,7 @@ const info = props.info
 
 <style scoped>
 .todoitem_wrapper {
-    padding: 0 30px;
+    padding: 0 20px 0 23px;
     height: 55px;
     justify-content: space-between;
 }
@@ -41,7 +41,6 @@ const info = props.info
     color: #FFFFFF;
     line-height: 16px;
     text-align: left;
-    font-style: normal;
     text-transform: none;
 }
 
@@ -52,7 +51,6 @@ const info = props.info
     color: rgba(255, 255, 255, 0.6);
     line-height: 16px;
     text-align: left;
-    font-style: normal;
     text-transform: none;
 }
 
@@ -63,7 +61,6 @@ const info = props.info
     color: rgba(255, 255, 255, 0.6);
     line-height: 16px;
     text-align: right;
-    font-style: normal;
     text-transform: none;
 }
 </style>
