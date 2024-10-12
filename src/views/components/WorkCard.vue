@@ -22,7 +22,7 @@ const info = props.info
 <style scoped>
 .workcard_wrapper {
     position: relative;
-    width: 378px;
+    /* width: 378px; */
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.06) 100%);
     border-radius: 40px;
     overflow: hidden;

@@ -7,13 +7,35 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
+      meta: {
+        showNav: true
+      }
     },
     {
       path: '/work',
       name: 'work',
-      component: () => import('../views/Work.vue')
-    }
+      component: () => import('../views/Work.vue'),
+      meta: {
+        showNav: true
+      }
+    },
+    {
+      path: '/resume',
+      name: 'resume',
+      component: () => import('../views/Resume.vue'),
+      meta: {
+        showNav: true
+      }
+    },
+    {
+      path: '/project',
+      name: 'project',
+      component: () => import('../views/Project.vue'),
+      meta: {
+        showNav: false
+      }
+    },
   ]
 })
 

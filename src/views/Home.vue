@@ -10,27 +10,33 @@ import Footer from './components/Footer.vue'
   <div class="home_wrapper dfc ai_center">
     <img class="bg_main w100" src="@/assets/images/bg_main.png" draggable="false">
     <img class="bg_star w100" src="@/assets/images/bg_star.png" draggable="false">
-    <div class="dfc ai_center">
-      <img class="blog" src="@/assets/images/blog.png" draggable="false">
-      <div class="welcome_text">
-        欢迎来到<span class="subtract">Barry</span>的设计世界！在这里，每一个创意都被精心打磨，每一个细节都被细致雕琢。如果你也在寻找设计上的突破与灵感，期待我们一起携手，创造出卓越的用户体验
+    <div class="content_box dfc ai_center">
+      <div class="dfc ai_center">
+        <img class="blog" src="@/assets/images/blog.png" draggable="false">
+        <div class="welcome_text">
+          欢迎来到<span class="subtract">Barry</span>的设计世界！在这里，每一个创意都被精心打磨，每一个细节都被细致雕琢。如果你也在寻找设计上的突破与灵感，期待我们一起携手，创造出卓越的用户体验
+        </div>
       </div>
+      <Button style="margin-top: 60px;">
+        <span>项目直达</span>
+        <Arrow style="margin-left: 20px;" />
+      </Button>
+      <TodoList style="margin-top: 103px;" />
+      <ShowTime />
+      <Footer />
     </div>
-    <Button style="margin-top: 60px;">
-      <span>项目直达</span>
-      <Arrow style="margin-left: 20px;" />
-    </Button>
-    <TodoList style="margin-top: 103px;" />
-    <ShowTime />
-    <Footer />
   </div>
 </template>
 
 <style scoped>
 .home_wrapper {
   position: relative;
-  margin-top: 128px;
+  margin-top: 216px;
   display: flex;
+}
+
+.content_box {
+  width: 1440px;
 }
 
 .bg_main {

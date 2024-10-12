@@ -37,6 +37,10 @@
     justify-content: center;
 }
 
+.jc_between {
+    justify-content: space-between;
+}
+
 .ai_center {
     align-items: center;
 }

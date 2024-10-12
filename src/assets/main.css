@@ -4,6 +4,7 @@
 #app {
   margin: 0 auto;
   font-weight: normal;
+  box-sizing: border-box;
   /* background-color: rgba(0, 0, 0, 1); */
 }
 
@@ -12,23 +13,4 @@ a,
   text-decoration: none;
   color: rgba(255, 255, 255, 0.7);
   transition: 0.4s;
-}
-
-@media (hover: hover) {
-  a:hover {
-    color: hsla(71, 30%, 38%, 0.977);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    justify-content: center;
-  }
-
-  #app {
-    /* display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem; */
-  }
 }

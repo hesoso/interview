@@ -42,55 +42,57 @@ const workList = [
 </script>
 
 <template>
-    <div class="work_wrapper">
-        <div class="top df">
-            <div class="left df ai_center">
-                <img class="work_logo w100" src="@/assets/images/work.png" draggable="false">
-                <div class="introduce">为了节省您的宝贵时间，这里特地准备了一份作品集，还从C端、B端区分做成了相应的栏目🫶🏻</div>
-            </div>
-            <div class="right df">
-                <Button class="ml16" :styles="{
-                    width: '134px',
-                    height: '36px',
-                    borderRadius: '8px',
-                    background: 'rgba(97,97,151,0.32)',
-                    fontSize: '16px'
-                }">
-                        <div class="df ai_center">
-                            <i data-feather="eye"></i>
-                        <span class="ml8">查看作品集</span>
-                        </div>
-                    </Button>
+    <div>
+        <div class="work_wrapper">
+            <div class="top df">
+                <div class="left df ai_center">
+                    <img class="work_logo w100" src="@/assets/images/work.png" draggable="false">
+                    <div class="introduce">为了节省您的宝贵时间，这里特地准备了一份作品集，还从C端、B端区分做成了相应的栏目🫶🏻</div>
+                </div>
+                <div class="right df">
                     <Button class="ml16" :styles="{
-                    width: '134px',
-                    height: '36px',
-                    borderRadius: '8px',
-                    background: '#616197',
-                    fontSize: '16px'
-                }">
-                        <i data-feather="download"></i>
-                        <span class="ml8">下载作品集</span>
-                    </Button>
+                        width: '134px',
+                        height: '36px',
+                        borderRadius: '8px',
+                        background: 'rgba(97,97,151,0.32)',
+                        fontSize: '16px'
+                    }">
+                            <div class="df ai_center">
+                                <i data-feather="eye"></i>
+                            <span class="ml8">查看作品集</span>
+                            </div>
+                        </Button>
+                        <Button class="ml16" :styles="{
+                        width: '134px',
+                        height: '36px',
+                        borderRadius: '8px',
+                        background: '#616197',
+                        fontSize: '16px'
+                    }">
+                            <i data-feather="download"></i>
+                            <span class="ml8">下载作品集</span>
+                        </Button>
+                </div>
+            </div>
+            <div class="banner"></div>
+            <div class="list">
+                <div class="list_title">具体项目：</div>
+                <div class="label df ai_center">
+                    <div class="oval"></div>
+                    <span>UI / UX 设计师</span>
+                </div>
+                <div class="list_box">
+                    <WorkCard v-for="(item, index) in workList" :key="index" :info="item" />
+                </div>
             </div>
         </div>
-        <div class="banner"></div>
-        <div class="list">
-            <div class="list_title">具体项目：</div>
-            <div class="label df ai_center">
-                <div class="oval"></div>
-                <span>UI / UX 设计师</span>
-            </div>
-            <div class="list_box">
-                <WorkCard v-for="(item, index) in workList" :key="index" :info="item" />
-            </div>
-        </div>
+        <Footer />
     </div>
-    <Footer />
 </template>
 
 <style scoped>
 .work_wrapper {
-    margin-top: 128px;
+    margin-top: 180px;
     padding: 0 132px
 }
 .ml8 {
@@ -125,9 +127,10 @@ const workList = [
     margin-top: 40px;
     height: 662px;
     border-radius: 40px;
-    background: orange;
+    background-image: url('@/assets/images/project/p1.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
-
 .list_title {
     margin-top: 96px;
     width: 689px;
@@ -164,6 +167,6 @@ const workList = [
     margin: 63px 0 73px;
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 每行三个元素，宽度平均分配 */
-    gap: 10px; /* 元素之间的间距 */
+    gap: 16px 14px; /* 元素之间的间距 */
 }
 </style>

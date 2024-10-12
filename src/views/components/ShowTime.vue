@@ -58,7 +58,7 @@ const skillList = [
 </script>
 
 <template>
-    <div class="showtime_wrapper dfc ai_center">
+    <div class="showtime_wrapper dfc ai_center w100">
         <div class="dfc ai_center">
             <MaskTitle textUrl="/src/assets/images/text_1.png">
                 <div class="desc_1">
@@ -301,7 +301,7 @@ const skillList = [
     width: 975px;
     /* height: 552px; */
     background: #000212;
-    border-radius: 46% 46% 0 0;
+    border-radius: 50% 50% 0 0;
 }
 
 .btn_box {

@@ -3,12 +3,12 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <header>
+  <header v-if="$route.meta.showNav">
     <section class="logo"></section>
     <nav>
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/work">项目作品</RouterLink>
-      <RouterLink to="/mine">我的简历</RouterLink>
+      <RouterLink to="/resume">我的简历</RouterLink>
     </nav>
   </header>
   <RouterView :style="{ width: $route.path === '/' ? '100vw' : '1440px' }" />
@@ -16,20 +16,28 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <style scoped>
 header {
-  position: relative;
   display: flex;
   align-items: center;
+  position: fixed;
+  left: 0;
+  right: 0;
   height: 50px;
+  background-color: rgba(0,0,0,0.01);
+  backdrop-filter: blur(8px);
+  z-index: 999;
 }
 
 .logo {
   position: absolute;
-  left: 132px;
+  left: 50%;
   width: 92px;
   height: 18px;
+  margin-left: -588px;
   background-image: url('@/assets/images/logo.png');
   background-size: 100%;
 }
+
+
 
 nav {
   width: 100%;
