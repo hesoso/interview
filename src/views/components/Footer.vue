@@ -6,11 +6,12 @@ const info = props.info
 <template>
     <div class="footer_wrapper df">
         <div class="left df ai_center">
-            <img class="icon" src="@/assets/images/logo_2.png" draggable="false">
+            <img class="icon" src="/images/logo_2.png" draggable="false">
             <span>Barry’s Personal Designed blog</span>
         </div>
-        <div class="right">
-            Interest is the Best Teacher, Designing with Purpose, Crafting with Precision
+        <div class="right dfc">
+            <span class="top">Interest is the Best Teacher, Designing with Purpose, Crafting with Precision</span>
+            <span class="bottom">© 2024 Design by Barry | 京ICP备2024089195号-1</span>
         </div>
     </div>
 </template>
@@ -43,8 +44,6 @@ const info = props.info
 }
 
 .right {
-    width: 313px;
-    height: 36px;
     font-family: OPPO Sans, OPPO Sans;
     font-weight: 400;
     font-size: 14px;
@@ -54,5 +53,14 @@ const info = props.info
     text-align: right;
     font-style: normal;
     text-transform: none;
+    align-items: flex-end;
+}
+
+.top {
+    width: 313px;
+}
+
+.bottom {
+    margin-top: 27px;
 }
 </style>

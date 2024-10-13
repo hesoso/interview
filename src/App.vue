@@ -11,7 +11,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <RouterLink to="/resume">我的简历</RouterLink>
     </nav>
   </header>
-  <RouterView :style="{ width: $route.path === '/' ? '100vw' : '1440px' }" />
+  <RouterView style="width: 100vw" />
 </template>
 
 <style scoped>
@@ -22,7 +22,7 @@ header {
   left: 0;
   right: 0;
   height: 50px;
-  background-color: rgba(0,0,0,0.01);
+  background-color: rgba(0, 0, 0, 0.01);
   backdrop-filter: blur(8px);
   z-index: 999;
 }
@@ -33,7 +33,7 @@ header {
   width: 92px;
   height: 18px;
   margin-left: -588px;
-  background-image: url('@/assets/images/logo.png');
+  background-image: url('/images/logo.png');
   background-size: 100%;
 }
 
@@ -58,7 +58,7 @@ nav a.router-link-exact-active::before {
   bottom: -6px;
   width: 13px;
   height: 13px;
-  background-image: url('@/assets/images/link_active.png');
+  background-image: url('/images/link_active.png');
   background-size: 13px 13px;
   background-repeat: no-repeat;
 }

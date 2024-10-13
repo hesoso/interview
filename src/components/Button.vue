@@ -4,8 +4,7 @@ const style = props.styles || {}
 </script>
 
 <template>
-    <div :style="style"
-    class="button_wrapper df_center">
+    <div :style="style" class="button_wrapper df_center">
         <slot></slot>
     </div>
 </template>
@@ -27,11 +26,14 @@ const style = props.styles || {}
     letter-spacing: 1px;
     text-align: center;
     text-transform: none;
-    transition: transform 0.2s ease-in-out;
+    transition: background 0.2s ease-in-out;
 }
 
 .button_wrapper:hover {
-    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.28);
+    /* background: transparent; */
+    /* box-shadow: 0 0 10px rgba(0, 123, 255, 0.3),
+        0 0 10px rgba(0, 123, 255, 0.2),
+        0 0 10px rgba(0, 123, 255, 0.1); */
 }
-
 </style>

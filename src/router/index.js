@@ -28,14 +28,14 @@ const router = createRouter({
         showNav: true
       }
     },
-    {
-      path: '/project',
-      name: 'project',
-      component: () => import('../views/Project.vue'),
-      meta: {
-        showNav: false
-      }
-    },
+    // {
+    //   path: '/project',
+    //   name: 'project',
+    //   component: () => import('../views/Project.vue'),
+    //   meta: {
+    //     showNav: false
+    //   }
+    // },
   ]
 })
 

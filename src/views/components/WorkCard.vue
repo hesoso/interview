@@ -5,26 +5,45 @@ const info = props.info
 
 <template>
     <div class="workcard_wrapper">
-        <div class="img_box">
-            <img class="img" :src="info.src" draggable="false">
-        </div>
-        <div class="info">
-            <div class="label df ai_center">
-                <div class="tag df_center">{{ info.tag }}</div>
-                <div class="title">{{ info.title }}</div>
+        <div class="border_box">
+            <div class="img_box">
+                <img class="img" :src="info.src" draggable="false">
             </div>
-            <div class="desc">{{ info.desc }}</div>
+            <div class="info">
+                <div class="label df ai_center">
+                    <div class="tag df_center">{{ info.tag }}</div>
+                    <div class="title">{{ info.title }}</div>
+                </div>
+                <div class="desc">{{ info.desc }}</div>
+            </div>
+            <div class="btn df_center">&#x276F;</div>
         </div>
-        <div class="btn df_center">&#x276F;</div>
     </div>
 </template>
 
 <style scoped>
 .workcard_wrapper {
+    padding: 1px;
     position: relative;
-    /* width: 378px; */
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.06) 100%);
     border-radius: 40px;
+    background: linear-gradient(180deg, #1A1B2A 0%, #0F1120 100%);
+}
+
+.workcard_wrapper:hover {
+    background: linear-gradient(180deg, rgba(190, 186, 186, 0.331) 0%, rgba(255, 255, 255, 0.16) 100%);
+}
+
+.workcard_wrapper:hover img {
+    transform: scale(1.1);
+}
+
+.workcard_wrapper:hover .btn {
+    background: #1A1C2A;
+}
+
+.border_box {
+    background: linear-gradient(180deg, #1A1B2A 0%, #0F1120 100%);
+    border-radius: 39px;
     overflow: hidden;
 }
 
@@ -42,14 +61,16 @@ const info = props.info
     cursor: pointer;
 }
 
+
 .img_box {
-    padding: 12px 12px 0 12px;
+    padding: 9px 12px 0 12px;
 }
 
 .img {
     width: 100%;
     height: 203px;
-    border-radius: 32px;
+    border-radius: 32px 32px 0 0;
+    transition: transform 0.3s ease;
 }
 
 .info {

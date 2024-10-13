@@ -2,24 +2,24 @@
 import TodoItem from './TodoItem.vue'
 
 const baseInfo = {
-    src: '/src/assets/images/company_1.png',
+    src: '/images/company_1.png',
     title: '北京日上集团',
     desc: '小程序设计｜B端设计｜用户体验设计',
 }
 const projectList = [
     {
-        src: '/src/assets/images/company_2.png',
+        src: '/images/company_2.png',
         title: '北京造化科技有限公司',
         desc: 'APP设计｜Web设计｜B端设计｜运营设计',
     },
     {
-        src: '/src/assets/images/company_3.png',
+        src: '/images/company_3.png',
         title: '上海芳欣科技有限公司',
         desc: 'APP设计｜Web设计',
     }
 ]
 const eduInfo = {
-    src: '/src/assets/images/edu.png',
+    src: '/images/edu.png',
     title: '陇东学院｜视觉传达设计',
     desc: '统招本科｜十余年绘画经验',
 }
@@ -41,18 +41,18 @@ const eduInfo = {
         <div class="title">教育背景</div>
         <TodoItem :info="eduInfo" />
         <div class="footer df ai_center">
-            <img class="left" src="@/assets/images/logo_2.png" draggable="false">
+            <img class="left" src="/images/logo_2.png" draggable="false">
             <div class="right df">
                 <div class="enter df">
                     <span>Open</span>
                     <div class="btn_box df_center">
-                        <img class="wh100" src="@/assets/images/enter.png" draggable="false">
+                        <img class="wh100" src="/images/enter.png" draggable="false">
                     </div>
                 </div>
                 <div class="actions df">
                     <span>Actions</span>
                     <div class="btn_box df_center">
-                        <img class="wh100" src="@/assets/images/cmd.png" draggable="false">
+                        <img class="wh100" src="/images/cmd.png" draggable="false">
                     </div>
                     <div class="btn_box df_center iconk">K</div>
                 </div>
@@ -65,7 +65,8 @@ const eduInfo = {
 .todolist_wrapper {
     width: 1018px;
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(142, 140, 144, 0.4);
+    box-shadow: 0px 0.679px 0px 0px rgba(255, 255, 255, 0.40) inset, 0px 0px 0px 0 rgba(0, 0, 0, 0.40), 0px 5.432px 54.316px 10.863px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(60px);
 }
 
@@ -100,9 +101,10 @@ const eduInfo = {
     height: 142px;
     background: rgba(25, 25, 25, .5);
     border-radius: 11px;
-    background-image: url('@/assets/images/banner.png');
+    background-image: url('/images/banner.png');
     background-size: 100% 100%;
 }
+
 .banner .name {
     width: 511px;
     height: 34px;
@@ -114,12 +116,13 @@ const eduInfo = {
     text-transform: none;
     color: #fff;
 }
+
 .banner .info {
     width: 350px;
     font-family: OPPO Sans, OPPO Sans;
     font-weight: 500;
     font-size: 14px;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255, 255, 255, 0.4);
     line-height: 22px;
     text-align: center;
     text-transform: none;

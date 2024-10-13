@@ -6,9 +6,9 @@ const pure = props.pure
 
 <template>
     <div class="masktitle_wrapper dfc ai_center" :class="pure ? '' : 'mask'">
-      <img class="logo" src="@/assets/images/logo_3.png" draggable="false">
-      <img class="text" :src="textUrl" draggable="false">
-      <slot></slot>
+        <img class="logo" src="/images/logo_3.png" draggable="false">
+        <img class="text" :src="textUrl" draggable="false">
+        <slot></slot>
     </div>
 </template>
 
@@ -18,7 +18,7 @@ const pure = props.pure
 }
 
 .mask {
-    background-image: url('@/assets/images/mask.png');
+    background-image: url('/images/mask.png');
     background-size: 588px 588px;
     background-position: 64px 0;
     background-repeat: no-repeat;

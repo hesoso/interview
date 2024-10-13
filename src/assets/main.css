@@ -1,5 +1,6 @@
 @import './base.css';
 @import './common.css';
+@import './anim.css';
 
 #app {
   margin: 0 auto;
