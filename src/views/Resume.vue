@@ -66,13 +66,19 @@ const hideQRCode = () => {
   isQRCodeVisible.value = false;
 };
 
+const downloadResumeProgress = ref(0)
+
 const downloadResume = () => {
-  downloadPDF("https://mbarry.cn/static/%E5%8C%85%E9%87%91%E9%BE%99%E7%9A%84%E7%AE%80%E5%8E%86.pdf")
+  downloadPDF("https://mbarry.cn/static/%E5%8C%85%E9%87%91%E9%BE%99%E7%9A%84%E7%AE%80%E5%8E%86.pdf", (progress) => {
+    downloadResumeProgress.value = progress
+  })
 }
 
-
+const downloadProjectProgress = ref(0)
 const downloadProject = () => {
-  downloadPDF("https://mbarry.cn/static/%E5%8C%85%E9%87%91%E9%BE%99%E4%BD%9C%E5%93%81%E9%9B%86.pdf")
+  downloadPDF("https://mbarry.cn/static/%E5%8C%85%E9%87%91%E9%BE%99%E4%BD%9C%E5%93%81%E9%9B%86.pdf", (progress) => {
+    downloadProjectProgress.value = progress
+  })
 }
 
 

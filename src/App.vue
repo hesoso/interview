@@ -24,7 +24,7 @@ header {
   height: 50px;
   background-color: rgba(0, 0, 0, 0.01);
   backdrop-filter: blur(8px);
-  z-index: 999;
+  z-index: 3;
 }
 
 .logo {

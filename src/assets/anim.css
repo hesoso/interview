@@ -20,5 +20,40 @@
 
 .anim_occur {
     animation: blurToClear 1000ms linear forwards;
-    will-change: opacity, filter, translateY;
+    will-change: opacity, filter, transform;
+}
+
+@keyframes rotateX {
+    0% {
+        opacity: 0.5;
+        filter: blur(10px);
+        transform: rotateX(60deg);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: rotateX(0deg);
+    }
+}
+
+.anim_rotate {
+    opacity: 0;
+    animation: rotateX 1000ms ease-out forwards 3000ms;
+    will-change: opacity, filter, transform;
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.anim_scale {
+    animation: scale 500ms ease-out forwards;
+    will-change: transform;
 }

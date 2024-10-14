@@ -5,7 +5,7 @@ import NoteList from './NoteList.vue'
 import SkillCard from './SkillCard.vue'
 import Button from '@/components/Button.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { EffectCoverflow, Autoplay } from 'swiper/modules'
+import { EffectCoverflow } from 'swiper/modules'
 
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
@@ -28,6 +28,17 @@ const handleIntersect = (entries) => {
         }
     });
 };
+
+
+const calculateDaysBetween = (dateString) => {
+    const startDate = new Date(dateString);
+    const currentDate = new Date();
+    const timeDifference = currentDate - startDate;
+    const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    return daysDifference;
+}
+
+const workDays = calculateDaysBetween('2022-4-12')
 
 
 const sliderTrack = ref(null);
@@ -94,8 +105,6 @@ const hideQRCode = () => {
     isQRCodeVisible.value = false;
 };
 
-
-const modules1 = [Autoplay]
 const modules2 = [EffectCoverflow]
 
 const projectList = [
@@ -154,11 +163,11 @@ const skillList = [
             </div>
             <div class="modal_box ctrl_box dfc ai_center">
                 <div class="days df ai_center">
-                    <div class="left">993</div>
+                    <div class="left">{{ workDays }}</div>
                     <div class="right">days already</div>
                 </div>
                 <div class="dream">
-                    大学毕业已经993多天了，我的梦想是成为一个公司的 Ctrl 键，继续努力！
+                    参加工作已经{{ workDays }}天了，我的梦想是成为一个公司的 Ctrl 键，继续努力！
                 </div>
                 <NoteList class="mt30" />
             </div>
@@ -166,26 +175,23 @@ const skillList = [
                 <img class="wh100" src="/images/todo_task.png" draggable="false">
             </div>
         </div>
-        <div class="project_box dfc ai_center">
-            <div class="desc_3">
-                这些项目展示了我在UI/UX设计中的多样化探索，涵盖了从用户调研到界面设计的完整流程，每个项目都体现了我在提升用户体验和解决设计挑战方面的独特思路
-            </div>
-            <div class="project_list">
-                <div class="slider">
-                    <!-- <swiper :autoplay="{ delay: 2000, disableOnInteraction: false }" :spaceBetween="150"
-                    :slidesPerView="'auto'" :loop="true" :speed="500" :modules="modules1" class="mySwiper">
-                    <swiper-slide v-for="(item, index) in projectList" :key="index">
-                        <img class="project_item" :src="item" draggable="false">
-                    </swiper-slide>
-                </swiper> -->
-                    <div class="slider-track" ref="sliderTrack">
-                        <div class="slide" v-for="(item, index) in projectList" :key="index">
-                            <img class="project_item" :src="item" draggable="false">
+        <div class="bg_light">
+            <div class="project_box dfc ai_center ">
+                <div class="desc_3">
+                    这些项目展示了我在UI/UX设计中的多样化探索，涵盖了从用户调研到界面设计的完整流程，每个项目都体现了我在提升用户体验和解决设计挑战方面的独特思路
+                </div>
+                <div class="project_list">
+                    <div class="slider">
+                        <div class="slider-track" ref="sliderTrack">
+                            <div class="slide" v-for="(item, index) in projectList" :key="index">
+                                <img class="project_item" :src="item" draggable="false">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <MaskTitle textUrl="/images/text_2.png">
             <div class="desc_1">
                 我对设计技术非常痴迷，每一次掌握新技能都让我感受到非常的开心。我始终相信，持续学习和不断创新是成为卓越设计师的关键，这种<span
@@ -193,7 +199,7 @@ const skillList = [
         </MaskTitle>
         <div class="skill_list">
             <swiper :initialSlide="1" :effect="'coverflow'" :slidesPerView="'auto'" :spaceBetween="22"
-                :centeredSlides="true" :grabCursor="true" :pagination="{
+                :centeredSlides="true" :grabCursor="true" :slideToClickedSlide="true" :pagination="{
             clickable: true,
         }" :coverflowEffect="{
             rotate: 50,
@@ -363,6 +369,14 @@ const skillList = [
     color: transparent;
 }
 
+.bg_light {
+    width: 100%;
+    background: radial-gradient(100% 90% at 50% 100%, #31324f 0%, transparent 45%, transparent 75%, transparent 100%);
+    background-position: 50% 0;
+    background-size: 100% 450px;
+    background-repeat: no-repeat;
+}
+
 .project_box {
     margin-top: 130px;
     padding-bottom: 112px;
@@ -378,19 +392,10 @@ const skillList = [
     width: 100%;
 }
 
-/* .project_list .swiper {
-    width: 100%;
-    height: 100%;
-}
-
-
-.project_list .swiper-slide {
-    width: auto;
-} */
-
 .project_list .project_item {
     height: 32px;
 }
+
 
 .skill_list {
     margin-top: 90px;
@@ -398,12 +403,15 @@ const skillList = [
 }
 
 .skill_list .swiper {
+    padding: 3px 0;
     width: 100%;
     height: 100%;
 }
 
 .skill_list .swiper-slide {
     width: 378px;
+    border-radius: 40px;
+    overflow: hidden;
 }
 
 .contact {

@@ -27,10 +27,15 @@ const info = props.info
     position: relative;
     border-radius: 40px;
     background: linear-gradient(180deg, #1A1B2A 0%, #0F1120 100%);
+    pointer-events: none
 }
 
 .workcard_wrapper:hover {
-    background: linear-gradient(180deg, rgba(190, 186, 186, 0.331) 0%, rgba(255, 255, 255, 0.16) 100%);
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0.5), 
+        rgba(255, 255, 255, 0.1)
+      ) !important;
 }
 
 .workcard_wrapper:hover img {

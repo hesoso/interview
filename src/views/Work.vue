@@ -4,14 +4,10 @@ import Button from '@/components/Button.vue'
 import Footer from './components/Footer.vue'
 import WorkCard from './components/WorkCard.vue'
 import Project from './components/Project.vue'
-import { useRouter } from 'vue-router'
 import { onMounted, onBeforeUnmount, ref } from 'vue'
 import { downloadPDF } from '@/utils/index'
 import Atropos from 'atropos';
 import 'atropos/css'
-
-const router = useRouter()
-
 
 const projectVisible = ref(false);
 
@@ -93,8 +89,12 @@ onBeforeUnmount(() => {
     window.removeEventListener('scroll', handleScroll);
 });
 
+
+const downloadProjectProgress = ref(0)
 const downloadProject = () => {
-    downloadPDF("https://mbarry.cn/static/%E5%8C%85%E9%87%91%E9%BE%99%E4%BD%9C%E5%93%81%E9%9B%86.pdf")
+  downloadPDF("https://mbarry.cn/static/%E5%8C%85%E9%87%91%E9%BE%99%E4%BD%9C%E5%93%81%E9%9B%86.pdf", (progress) => {
+    downloadProjectProgress.value = progress
+  })
 }
 
 const workList = [
@@ -235,7 +235,6 @@ const workList = [
     background-image: url('/images/light2.png');
     background-size: 1440px 388px;
     background-repeat: no-repeat;
-    z-index: 1;
 }
 
 
@@ -280,7 +279,6 @@ const workList = [
 }
 
 .banner {
-    /* cursor: pointer; */
     position: relative;
     height: 662px;
     border-radius: 40px;

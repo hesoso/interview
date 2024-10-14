@@ -76,4 +76,8 @@ const noteList = [
   height: 105px;
   overflow: scroll;
 }
+
+.list_box::-webkit-scrollbar {
+  display: none;
+}
 </style>

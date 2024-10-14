@@ -26,7 +26,7 @@ const style = props.styles || {}
     letter-spacing: 1px;
     text-align: center;
     text-transform: none;
-    transition: background 0.2s ease-in-out;
+    transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .button_wrapper:hover {
@@ -35,5 +35,6 @@ const style = props.styles || {}
     /* box-shadow: 0 0 10px rgba(0, 123, 255, 0.3),
         0 0 10px rgba(0, 123, 255, 0.2),
         0 0 10px rgba(0, 123, 255, 0.1); */
+        transform: scale(1.03);
 }
 </style>

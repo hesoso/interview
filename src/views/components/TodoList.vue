@@ -1,12 +1,12 @@
 <script setup>
 import TodoItem from './TodoItem.vue'
 
-const baseInfo = {
-    src: '/images/company_1.png',
-    title: '北京日上集团',
-    desc: '小程序设计｜B端设计｜用户体验设计',
-}
 const projectList = [
+    {
+        src: '/images/company_1.png',
+        title: '北京日上集团',
+        desc: '小程序设计｜B端设计｜用户体验设计',
+    },
     {
         src: '/images/company_2.png',
         title: '北京造化科技有限公司',
@@ -26,44 +26,49 @@ const eduInfo = {
 </script>
 
 <template>
-    <div class="todolist_wrapper">
-        <div class="header">
-            <input class="wh100" type="text" placeholder="Come explore my story">
-        </div>
-        <div class="title">基本信息</div>
-        <div class="banner dfc_center">
-            <div class="name">包金龙- Barry</div>
-            <div class="info">目前是一名三年经验的UI设计师，励志想要做一名顶级的用户体验设计师</div>
-        </div>
-        <TodoItem :info="baseInfo" />
-        <div class="title">项目经验</div>
-        <TodoItem v-for="(item, index) in projectList" :key="index" :info="item" />
-        <div class="title">教育背景</div>
-        <TodoItem :info="eduInfo" />
-        <div class="footer df ai_center">
-            <img class="left" src="/images/logo_2.png" draggable="false">
-            <div class="right df">
-                <div class="enter df">
-                    <span>Open</span>
-                    <div class="btn_box df_center">
-                        <img class="wh100" src="/images/enter.png" draggable="false">
-                    </div>
+        <div class="todolist_wrapper">
+            <div class="anim_box anim_rotate">
+                <div class="header">
+                    <input class="wh100" type="text" placeholder="Come explore my story">
                 </div>
-                <div class="actions df">
-                    <span>Actions</span>
-                    <div class="btn_box df_center">
-                        <img class="wh100" src="/images/cmd.png" draggable="false">
+                <div class="title">基本信息</div>
+                <div class="banner dfc_center">
+                    <div class="name">包金龙- Barry</div>
+                    <div class="info">目前是一名三年经验的UI设计师，励志想要做一名顶级的用户体验设计师</div>
+                </div>
+                <div class="title">项目经验</div>
+                <TodoItem v-for="(item, index) in projectList" :key="index" :info="item" />
+                <div class="title">教育背景</div>
+                <TodoItem :info="eduInfo" />
+                <div class="footer df ai_center">
+                    <img class="left" src="/images/logo_2.png" draggable="false">
+                    <div class="right df">
+                        <div class="enter df">
+                            <span>Open</span>
+                            <div class="btn_box df_center">
+                                <img class="wh100" src="/images/enter.png" draggable="false">
+                            </div>
+                        </div>
+                        <div class="actions df">
+                            <span>Actions</span>
+                            <div class="btn_box df_center">
+                                <img class="wh100" src="/images/cmd.png" draggable="false">
+                            </div>
+                            <div class="btn_box df_center iconk">K</div>
+                        </div>
                     </div>
-                    <div class="btn_box df_center iconk">K</div>
                 </div>
             </div>
         </div>
-    </div>
 </template>
 
 <style scoped>
 .todolist_wrapper {
     width: 1018px;
+    perspective: 1000px;
+}
+
+.anim_box {
     border-radius: 16px;
     border: 1px solid rgba(142, 140, 144, 0.4);
     box-shadow: 0px 0.679px 0px 0px rgba(255, 255, 255, 0.40) inset, 0px 0px 0px 0 rgba(0, 0, 0, 0.40), 0px 5.432px 54.316px 10.863px rgba(0, 0, 0, 0.2);
@@ -190,4 +195,5 @@ const eduInfo = {
     text-align: center;
     text-transform: none;
 }
+
 </style>

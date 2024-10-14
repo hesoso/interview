@@ -5,25 +5,35 @@ const info = props.info
 
 <template>
   <div class="skillcard_wrapper">
-    <img class="img" :src="info.src" draggable="false">
-    <div class="info">
-      <div class="label df ai_center">
-        <div class="tag df_center">{{ info.tag }}</div>
-        <div class="title">{{ info.title }}</div>
+    <div class="border_box">
+      <img class="img" :src="info.src" draggable="false">
+      <div class="info">
+        <div class="label df ai_center">
+          <div class="tag df_center">{{ info.tag }}</div>
+          <div class="title">{{ info.title }}</div>
+        </div>
+        <div class="desc">{{ info.desc }}</div>
       </div>
-      <div class="desc">{{ info.desc }}</div>
+      <div class="btn df_center">&#x276F;</div>
     </div>
-    <div class="btn df_center">&#x276F;</div>
-  </div>
+</div>
 </template>
 
 <style scoped>
 .skillcard_wrapper {
   position: relative;
+  padding: 1px;
   width: 378px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.06) 100%);
+  /* background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.06) 100%); */
+  background: linear-gradient(180deg, #1A1B2A 0%, #0F1120 100%);
   border-radius: 40px;
   overflow: hidden;
+}
+
+.border_box {
+    background: linear-gradient(180deg, #1A1B2A 0%, #0F1120 100%);
+    border-radius: 39px;
+    overflow: hidden;
 }
 
 .btn {
