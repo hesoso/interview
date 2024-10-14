@@ -3,6 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
+  <audio ref="audioRef" src="/audios/tips.mp3" preload="auto"></audio>
   <header v-if="$route.meta.showNav">
     <section class="logo"></section>
     <nav>

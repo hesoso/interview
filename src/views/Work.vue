@@ -90,11 +90,14 @@ onBeforeUnmount(() => {
 });
 
 
+const downloadProjectVisible = ref(false)
 const downloadProjectProgress = ref(0)
 const downloadProject = () => {
-  downloadPDF("https://mbarry.cn/static/%E5%8C%85%E9%87%91%E9%BE%99%E4%BD%9C%E5%93%81%E9%9B%86.pdf", (progress) => {
-    downloadProjectProgress.value = progress
-  })
+    downloadProjectVisible.value = true
+    downloadPDF("/project.pdf", (progress) => {
+        if (progress == 100) downloadProjectVisible.value = false
+        downloadProjectProgress.value = progress
+    })
 }
 
 const workList = [
@@ -169,7 +172,7 @@ const workList = [
                 <img class="work_logo w100" src="/images/work.png" draggable="false">
                 <div class="introduce">为了节省您的宝贵时间，这里特地准备了一份作品集，还从C端、B端区分做成了相应的栏目🫶🏻</div>
             </div>
-            <div class="right df">
+            <div class="right df" style="position: relative;">
                 <Button class="ml16" :styles="{
             width: '134px',
             height: '36px',
@@ -192,6 +195,10 @@ const workList = [
                     <i data-feather="download"></i>
                     <span class="ml8">下载作品集</span>
                 </Button>
+                <!-- 进度条 -->
+                <div v-if="downloadProjectVisible" class="progress-container">
+                    <div class="progress-bar" :style="{ width: downloadProjectProgress + '%' }"></div>
+                </div>
             </div>
         </div>
         <div class="atropos my-atropos">
@@ -200,7 +207,7 @@ const workList = [
                 <!-- rotate container (required) -->
                 <div class="atropos-rotate">
                     <!-- inner container (required) -->
-                    <div class="atropos-inner">
+                    <div class="atropos-inner" style="border-radius: 40px;">
                         <!-- put your custom content here -->
                         <div class="banner" @click="setProjectVisible" @mousemove="handleMouseMove"
                             @mouseenter="showButton" @mouseleave="hideButton">
@@ -285,6 +292,7 @@ const workList = [
     background-image: url('/images/project/p1.jpg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    overflow: hidden;
 
     transition: transform 0.2s ease;
     /* 添加平滑的缩放动画效果 */
@@ -294,6 +302,23 @@ const workList = [
     /* 保持子元素的 3D 变换 */
     cursor: url('/images/cursor.png'), auto;
     /* 使用绿色光标图片 */
+}
+
+.progress-container {
+    width: 134px;
+    height: 6px;
+    background-color: #f3f3f3;
+    border-radius: 3px;
+    position: absolute;
+    top: 50px;
+    right: 0;
+}
+
+.progress-container .progress-bar {
+    height: 100%;
+    background-color: #616197;
+    border-radius: 3px;
+    transition: width 0.4s ease;
 }
 
 

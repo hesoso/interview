@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue';
 import Button from '@/components/Button.vue'
 import Arrow from '@/components/Arrow.vue'
 import TodoList from './components/TodoList.vue'
@@ -8,12 +7,9 @@ import Footer from './components/Footer.vue'
 import { useRouter } from 'vue-router'
 const router = useRouter()
 
-// 创建对音频元素的引用
-const audioRef = ref(null);
-
 // 定义播放音效的函数
 const handleClick = () => {
-  const audioElement = audioRef.value;
+  const audioElement = document.querySelector('audio');
   if (audioElement) {
     audioElement.currentTime = 0; // 确保每次点击时从头播放
     audioElement.play(); // 播放音效
@@ -27,7 +23,6 @@ const handleClick = () => {
 
 <template>
   <div class="home_wrapper dfc ai_center">
-    <audio ref="audioRef" src="/audios/tips.mp3" preload="auto"></audio>
     <img class="bg_main w100" src="/images/bg_main.jpg" draggable="false">
     <div class="content_box dfc ai_center">
       <div class="dfc ai_center">
@@ -88,12 +83,14 @@ const handleClick = () => {
 
 .subtract {
   display: inline-block;
+  padding: 0px 0 3px;
   margin: 0 5px;
   width: 62px;
-  height: 18px;
-  line-height: 14px;
+  line-height: 18px;
+  font-size: 14px;
   background-image: url('/images/subtract.png');
-  background-size: 100% 100%;
+  background-size: 62px 18px;
+  background-position: 0px 0px;
   background-repeat: no-repeat;
   color: black;
 }

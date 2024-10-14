@@ -66,17 +66,22 @@ const hideQRCode = () => {
   isQRCodeVisible.value = false;
 };
 
+const downloadResumeVisible = ref(false)
 const downloadResumeProgress = ref(0)
-
 const downloadResume = () => {
-  downloadPDF("https://mbarry.cn/static/%E5%8C%85%E9%87%91%E9%BE%99%E7%9A%84%E7%AE%80%E5%8E%86.pdf", (progress) => {
+  downloadResumeVisible.value = true
+  downloadPDF("/resume.pdf", (progress) => {
+    if (progress == 100) downloadResumeVisible.value = false
     downloadResumeProgress.value = progress
   })
 }
 
+const downloadProjectVisible = ref(false)
 const downloadProjectProgress = ref(0)
 const downloadProject = () => {
-  downloadPDF("https://mbarry.cn/static/%E5%8C%85%E9%87%91%E9%BE%99%E4%BD%9C%E5%93%81%E9%9B%86.pdf", (progress) => {
+  downloadProjectVisible.value = true
+  downloadPDF("/project.pdf", (progress) => {
+    if (progress == 100) downloadProjectVisible.value = false
     downloadProjectProgress.value = progress
   })
 }
@@ -187,17 +192,25 @@ const experienceList = [
         <div class="card right">
           <div class="title">简历 & 作品集：</div>
           <div class="df jc_between">
-            <div class="dfc">
+            <div class="dfc" style="position: relative;">
               <div class="item">下载我的简历（PDF)</div>
               <Button @click="downloadResume" class="mt16" :styles="{
         width: '96px',
         height: '30px',
         borderRadius: '8px',
         background: '#616197',
-        fontSize: '16px'
-      }">下载简历</Button>
+        fontSize: '16px',
+      }">
+                <span>下载简历</span>
+              </Button>
+
+              <!-- 进度条 -->
+              <div v-if="downloadResumeVisible" class="progress-container">
+                <div class="progress-bar" :style="{ width: downloadResumeProgress + '%' }"></div>
+              </div>
+
             </div>
-            <div class="dfc">
+            <div class="dfc" style="position: relative;">
               <div class="item">下载我的作品集（PDF)</div>
               <Button @click="downloadProject" class="mt16" :styles="{
         width: '112px',
@@ -206,6 +219,11 @@ const experienceList = [
         background: '#616197',
         fontSize: '16px'
       }">下载作品集</Button>
+
+              <!-- 进度条 -->
+              <div v-if="downloadProjectVisible" class="progress-container">
+                <div class="progress-bar" :style="{ width: downloadProjectProgress + '%' }"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -415,6 +433,23 @@ const experienceList = [
   text-align: left;
   font-style: normal;
   text-transform: none;
+}
+
+.progress-container {
+  width: 112px;
+  height: 6px;
+  background-color: #f3f3f3;
+  border-radius: 3px;
+  position: absolute;
+  top: 85px;
+  left: 0;
+}
+
+.progress-container .progress-bar {
+  height: 100%;
+  background-color: #616197;
+  border-radius: 3px;
+  transition: width 0.4s ease;
 }
 
 .skill {
