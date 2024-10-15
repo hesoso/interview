@@ -41,7 +41,7 @@ import MobileHeader from '@/views/components/MobileHeader.vue'
   left: 0;
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.01);
-  backdrop-filter: blur(80px);
+  z-index: 3;
 }
 
 .logo {

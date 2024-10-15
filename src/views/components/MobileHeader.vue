@@ -3,17 +3,23 @@
 
 <template>
   <div class="mobile_header_wrapper">
-    <div class="border_box df ai_center jc_between">
-      <img class="logo" src="/images/mobile/logo.png" draggable="false">
-      <img class="logo_2" src="/images/mobile/logo_3.png" draggable="false">
-      <img class="icon_line" src="/images/mobile/icon_line.png" draggable="false">
+    <div class="mobile_header_box">
+      <div class="border_box df ai_center jc_between">
+        <img class="logo" src="/images/mobile/logo.png" draggable="false">
+        <img class="logo_2" src="/images/mobile/logo_3.png" draggable="false">
+        <img class="icon_line" src="/images/mobile/icon_line.png" draggable="false">
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
 .mobile_header_wrapper {
-  margin: 56px 16px;
+  padding: 56px 16px 2px;
+  backdrop-filter: blur(8px);
+
+}
+.mobile_header_box {
   padding: 1px;
   height: 56px;
   border-radius: 28px;
@@ -28,7 +34,7 @@
   height: 100%;
   border-radius: 27px;
   background: #000212;
-  backdrop-filter: blur(80px);
+  
 }
 
 .logo {

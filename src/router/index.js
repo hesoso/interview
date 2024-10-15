@@ -36,14 +36,14 @@ const router = createRouter({
         isMobile: true
       }
     },
-    // {
-    //   path: '/mobile/work',
-    //   name: 'work',
-    //   component: () => import('../views/MobileWork.vue'),
-    //   meta: {
-    //     isMobile: true
-    //   }
-    // },
+    {
+      path: '/mobile/work',
+      name: 'work',
+      component: () => import('../views/MobileWork.vue'),
+      meta: {
+        isMobile: true
+      }
+    },
     {
       path: '/mobile/resume',
       name: 'resume',
