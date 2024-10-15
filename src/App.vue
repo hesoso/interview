@@ -1,22 +1,30 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import MobileHeader from '@/views/components/MobileHeader.vue'
 </script>
 
 <template>
-  <audio ref="audioRef" src="/audios/tips.mp3" preload="auto"></audio>
-  <header v-if="$route.meta.showNav">
-    <section class="logo"></section>
-    <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/work">项目作品</RouterLink>
-      <RouterLink to="/resume">我的简历</RouterLink>
-    </nav>
-  </header>
+  <template v-if="!$route.meta.isMobile">
+    <audio ref="audioRef" src="/audios/tips.mp3" preload="auto"></audio>
+    <div class="web_header" v-if="$route.meta.showNav">
+      <section class="logo"></section>
+      <nav>
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/work">项目作品</RouterLink>
+        <RouterLink to="/resume">我的简历</RouterLink>
+      </nav>
+    </div>
+  </template>
+  <template v-else>
+    <div class="mobile_header">
+      <MobileHeader />
+    </div>
+  </template>
   <RouterView style="width: 100vw" />
 </template>
 
 <style scoped>
-header {
+.web_header {
   display: flex;
   align-items: center;
   position: fixed;
@@ -28,6 +36,14 @@ header {
   z-index: 3;
 }
 
+.mobile_header {
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.01);
+  backdrop-filter: blur(80px);
+}
+
 .logo {
   position: absolute;
   left: 50%;
@@ -37,8 +53,6 @@ header {
   background-image: url('/images/logo.png');
   background-size: 100%;
 }
-
-
 
 nav {
   width: 100%;

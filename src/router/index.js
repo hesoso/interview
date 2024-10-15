@@ -6,7 +6,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'Home',
       component: Home,
       meta: {
         showNav: true
@@ -14,7 +14,7 @@ const router = createRouter({
     },
     {
       path: '/work',
-      name: 'work',
+      name: 'Work',
       component: () => import('../views/Work.vue'),
       meta: {
         showNav: true
@@ -22,10 +22,34 @@ const router = createRouter({
     },
     {
       path: '/resume',
-      name: 'resume',
+      name: 'Resume',
       component: () => import('../views/Resume.vue'),
       meta: {
         showNav: true
+      }
+    },
+    {
+      path: '/mobile/home',
+      name: 'MobileHome',
+      component: () => import('../views/MobileHome.vue'),
+      meta: {
+        isMobile: true
+      }
+    },
+    // {
+    //   path: '/mobile/work',
+    //   name: 'work',
+    //   component: () => import('../views/MobileWork.vue'),
+    //   meta: {
+    //     isMobile: true
+    //   }
+    // },
+    {
+      path: '/mobile/resume',
+      name: 'resume',
+      component: () => import('../views/MobileResume.vue'),
+      meta: {
+        isMobile: true
       }
     },
   ]

@@ -105,7 +105,7 @@ const hideQRCode = () => {
     isQRCodeVisible.value = false;
 };
 
-const modules2 = [EffectCoverflow]
+const modules = [EffectCoverflow]
 
 const projectList = [
     '/images/project_1.png',
@@ -207,7 +207,7 @@ const skillList = [
             depth: 100,
             modifier: 1,
             slideShadows: true,
-        }" :modules="modules2">
+        }" :modules="modules">
                 <swiper-slide v-for="(item, index) in skillList" :key="index">
                     <SkillCard :info="item" />
                 </swiper-slide>
