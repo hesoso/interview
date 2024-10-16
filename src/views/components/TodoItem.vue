@@ -35,7 +35,6 @@ const info = props.info
 
 .title {
     margin: 0 14px;
-    font-family: OPPO Sans, OPPO Sans;
     font-weight: 400;
     font-size: 14px;
     color: #FFFFFF;
@@ -45,7 +44,6 @@ const info = props.info
 }
 
 .desc {
-    font-family: OPPO Sans, OPPO Sans;
     font-weight: 400;
     font-size: 14px;
     color: rgba(255, 255, 255, 0.6);
@@ -55,7 +53,6 @@ const info = props.info
 }
 
 .right {
-    font-family: OPPO Sans, OPPO Sans;
     font-weight: 400;
     font-size: 14px;
     color: rgba(255, 255, 255, 0.6);

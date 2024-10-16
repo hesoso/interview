@@ -284,7 +284,6 @@ const skillList = [
 .desc_1 {
     margin-top: 30px;
     width: 650px;
-    font-family: OPPO Sans, OPPO Sans;
     font-weight: 400;
     font-size: 16px;
     text-align: center;
@@ -323,7 +322,6 @@ const skillList = [
 }
 
 .ctrl_box .days .left {
-    font-family: JetBrains Mono, JetBrains Mono;
     font-weight: bold;
     font-size: 32px;
     color: #FFFFFF;
@@ -335,7 +333,6 @@ const skillList = [
 .ctrl_box .days .right {
     margin-left: 5px;
     width: 58px;
-    font-family: Inter, Inter;
     font-weight: 500;
     font-size: 13px;
     color: rgba(255, 255, 255, 0.6);
@@ -347,7 +344,6 @@ const skillList = [
 .ctrl_box .dream {
     margin-top: 18px;
     width: 238px;
-    font-family: OPPO Sans, OPPO Sans;
     font-weight: 400;
     font-size: 14px;
     color: rgba(180, 188, 208, 0.5);
@@ -357,7 +353,6 @@ const skillList = [
 
 .desc_3 {
     width: 610px;
-    font-family: OPPO Sans, OPPO Sans;
     font-weight: 400;
     font-size: 16px;
     line-height: 29px;

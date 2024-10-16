@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import MobileFooter from './components/MobileFooter.vue'
 import MobileSkillCard from './components/MobileSkillCard.vue'
+import { copyText } from '@/utils/index'
 
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
@@ -13,7 +14,7 @@ onMounted(() => {
     let track = sliderTrack.value;
     let currentPosition = 0;
     function scroll() {
-        currentPosition -= 1;
+        currentPosition -= 0.5;
         if (Math.abs(currentPosition) >= 411) {
             currentPosition = 0;
         }
@@ -23,6 +24,14 @@ onMounted(() => {
 
     scroll();
 });
+
+const copied = ref(false)
+const copyLink = async () => {
+  copyText(location.href, () => {
+    copied.value = true
+    setTimeout(() => copied.value = false, 2000)
+  })
+}
 
 const projectList = [
     {
@@ -117,12 +126,17 @@ const skillList = [
 
 <template>
   <div class="mobile_home_wrapper">
+    <transition name="fade">
+      <div v-if="copied" class="copy-success">
+        网址已复制到剪贴板
+      </div>
+    </transition>
     <div class="bg_top_left"></div>
     <div class="bg_bottom_right"></div>
     <div class="title">Personal work blog</div>
     <div class="top df ai_center jc_between">
       <div class="tips">由于该网站主要展示包金龙作品集，建议点击右方复制网址到电脑/iPad端观看 🫶🏻</div>
-      <div class="copy_link df_center">
+      <div class="copy_link df_center" @click="copyLink">
         <img src="/images/mobile/icon_copy_link.png" draggable="false">
       </div>
     </div>
@@ -156,7 +170,7 @@ const skillList = [
 .bg_top_left {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 35px;
   width: 147px;
   height: 113px;
   background-image: url('/images/mobile/bg_top_left.png');
@@ -177,9 +191,8 @@ const skillList = [
 
 .title {
   padding-left: 24px;
-  width: 190px;
+  width: 250px;
   height: 96px;
-  font-family: OPPO Sans, OPPO Sans;
   font-weight: bold;
   font-size: 40px;
   line-height: 48px;
@@ -199,7 +212,6 @@ const skillList = [
 
 .tips {
   height: 40px;
-  font-family: PingFang SC, PingFang SC;
   font-weight: 400;
   font-size: 14px;
   color: rgba(148,163,184,0.9);
@@ -257,5 +269,34 @@ const skillList = [
 .skill_list .swiper-slide {
     width: 320px;
     border-radius: 16px;
+}
+
+.copy-success {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  margin-left: -100PX;
+  width: 200px;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid #fff;
+  color: #fff;
+  transition: 0.3s linear;
+  z-index: 10000;
+}
+
+/* 定义过渡的基础类 */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+  /* 0.5 秒平滑过渡 */
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  /* 进入时从透明变为不透明，离开时从不透明变为透明 */
 }
 </style>

@@ -29,7 +29,6 @@ const handleClick = (index) => {
 }
 .tab {
   width: 33.3%;
-  font-family: SF Pro, SF Pro;
   font-weight: 400;
   font-size: 13px;
   color: #FFFFFF;

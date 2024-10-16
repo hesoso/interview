@@ -30,7 +30,6 @@ const info = props.info
 
 .desc {
     margin-left: 7px;
-    font-family: OPPO Sans, OPPO Sans;
     font-weight: 400;
     font-size: 10px;
     color: #F7F8F8;
@@ -40,7 +39,6 @@ const info = props.info
 }
 
 .right {
-    font-family: OPPO Sans, OPPO Sans;
     font-weight: 400;
     font-size: 14px;
     color: rgba(255, 255, 255, 0.6);

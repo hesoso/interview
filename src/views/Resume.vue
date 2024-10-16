@@ -4,7 +4,7 @@ import Button from '@/components/Button.vue'
 import Footer from './components/Footer.vue'
 
 import { onMounted, ref } from 'vue'
-import { downloadPDF } from '@/utils/index'
+import { downloadPDF, getDownloadProgress, copyText } from '@/utils/index'
 
 const cardList1 = ref(null);
 const cardList2 = ref(null);
@@ -36,22 +36,12 @@ onMounted(() => {
 // 用于显示复制成功的提示
 const copied = ref(false);
 
-// 复制文本的函数
-const copyText = async () => {
-  const textToCopy = "bjl924143589@163.com";
-  try {
-    // 使用 Clipboard API 复制文本
-    await navigator.clipboard.writeText(textToCopy);
-    copied.value = true;
-
-    // 复制成功后，设置 2 秒后隐藏提示
-    setTimeout(() => {
-      copied.value = false;
-    }, 2000);
-  } catch (err) {
-    console.error("复制失败：", err);
-  }
-};
+const copy = async (text) => {
+  copyText(text, () => {
+    copied.value = true
+    setTimeout(() => copied.value = false, 2000)
+  })
+}
 
 // 控制二维码显示与隐藏的状态
 const isQRCodeVisible = ref(false);
@@ -66,24 +56,45 @@ const hideQRCode = () => {
   isQRCodeVisible.value = false;
 };
 
+const resumeUrl = "/resume.pdf"
+const peojectUrl = "/project.pdf"
+
 const downloadResumeVisible = ref(false)
 const downloadResumeProgress = ref(0)
+
+const onResumeProgress = (progress) => {
+    if (progress >= 100 || !progress) {
+      downloadResumeVisible.value = false
+      downloadResumeProgress.value = 0
+    } else if (progress >= 0) {
+      downloadResumeVisible.value = true
+      downloadResumeProgress.value = progress
+    }
+}
+
+getDownloadProgress(resumeUrl, onResumeProgress)
+
 const downloadResume = () => {
-  downloadResumeVisible.value = true
-  downloadPDF("/resume.pdf", (progress) => {
-    if (progress == 100) downloadResumeVisible.value = false
-    downloadResumeProgress.value = progress
-  })
+  downloadPDF(resumeUrl, onResumeProgress)
 }
 
 const downloadProjectVisible = ref(false)
 const downloadProjectProgress = ref(0)
+
+const onPeojectProgress = (progress) => {
+    if (progress >= 100 || !progress) {
+        downloadProjectVisible.value = false
+        downloadProjectProgress.value = 0
+    } else if (progress >= 0) {
+        downloadProjectVisible.value = true
+        downloadProjectProgress.value = progress
+    }
+}
+
+getDownloadProgress(peojectUrl, onPeojectProgress)
+
 const downloadProject = () => {
-  downloadProjectVisible.value = true
-  downloadPDF("/project.pdf", (progress) => {
-    if (progress == 100) downloadProjectVisible.value = false
-    downloadProjectProgress.value = progress
-  })
+  downloadPDF(peojectUrl, onPeojectProgress)
 }
 
 
@@ -91,43 +102,33 @@ const experienceList = [
   {
     time: '2023. 01 ～ 至今',
     company: '北京日上集团',
-    post: 'UI/UE设计师',
+    post: 'UI/UE设计师（IOT部）',
     jobs: [
       {
-        content: '电商小程序设计',
+        content: '日上门业、日上师傅端、日上录单员端、日上后台',
         details: [
-          '产品：前期 0-1 产品原型的搭建，负责小程序的前期售后服务板块需求调研',
-          '设计：独立负责小程序视觉UI设计以及用户体验，为新产品提供创意方案，独立负责小程序视觉UI设计以及用户体验，为新产品提供创意方案，',
-          '设计：独立负责小程序视觉UI设计以及用户体验，为新产品提供创意方案，独立负责小程序视觉UI设计以及用户体验，为新产品提供创意方案，',
-          '设计：独立负责小程序视觉UI设计以及用户体验，为新产品提供创意方案，独立负责小程序视觉UI设计以及用户体验，为新产品提供创意方案，',
-          '设计：独立负责小程序视觉UI设计以及用户体验，为新产品提供创意方案，独立负责小程序视觉UI设计以及用户体验，为新产品提供创意方案，',
+          '主要负责公司ToC电商小程序0-1搭建，前期担任产品经理和体验设计岗位，后期与产品经理共同规划产品需求，提出可行性设计方案并落地;',
+          '负责了ToB业务日上师傅端、日上服务小程序、公司IOT后台以及电商后台的UI视觉设计、交互以及设计系统全流程设计;',
+          '负责公司IOT后台的前期需求调研，组件库搭建，并提供如表单引擎、流程引擎、工作流等底层功能的设计方案，为后续功能扩展打下基础；',
+          '沉淀设计资产，找可被同类产品复用的分步式部署流程、标准化布局框架及交互模式，探索落地大量设计价值体现的设计方法等;',
+          '在项目的前期阶段，我还担任了产品经理的角色，主导了日上门业和日上后台的策划与制作。',
         ]
       },
-      {
-        content: '电商小程序设计',
-        details: [
-          '产品：前期 0-1 产品原型的搭建，负责小程序的前期售后服务板块需求调研',
-          '设计：独立负责小程序视觉UI设计以及用户体验，为新产品提供创意方案，独立负责小程序视觉UI设计以及用户体验，为新产品提供创意方案，',
-          '设计：独立负责小程序视觉UI设计以及用户体验，为新产品提供创意方案，',
-          '设计：独立负责小程序视觉UI设计以及用户体验，为新产品提供创意方案，',
-          '设计：独立负责小程序视觉UI设计以及用户体验，为新产品提供创意方案，',
-        ]
-      }
     ]
   },
   {
     time: '2021. 07 ～ 2023. 01',
     company: '北京造化科技有限公司',
-    post: 'UI设计师',
+    post: 'UI设计师（设计部）',
     jobs: [
       {
-        content: '电商小程序设计',
+        content: '造作商城、造作网页、造作OA系统',
         details: [
-          '产品：前期 0-1 产品原型的搭建，负责小程序的前期售后服务板块需求调研',
-          '设计：独立负责小程序视觉UI设计以及用户体验，为新产品提供创意方案，',
-          '设计：独立负责小程序视觉UI设计以及用户体验，为新产品提供创意方案，',
-          '设计：独立负责小程序视觉UI设计以及用户体验，为新产品提供创意方案，',
-          '设计：独立负责小程序视觉UI设计以及用户体验，为新产品提供创意方案，',
+          '负责公司B端产品（OA系统）、C端APP、官网的UI设计和用户体验，需求前期分析，制定规范及设计标准，与开发工程师进行沟通协作；',
+          '配合运营团队协作，洞察项目背后数据原因，深挖用户需求并能准确定位，快速响应设计解决方案；',
+          '并基于用户视⻆持续迭代优化产品，研究设计趋势，推动创新方案，实现产品界面呈现在用户体验上的突破，总结设计方法论；',
+          '产品数据的变化与用户满意度有极高的敏感度，能够从视觉设计和产品体验的角度提出改进建议或优质解决方案，并推动落地实施；',
+          '负责研究设计趋势，推动创新方案，实现产品界面呈现在用户体验上的突破，总结设计方法论，并在公司内部分享，提高整个团队的设计软实力。',
         ]
       }
     ]
@@ -138,12 +139,11 @@ const experienceList = [
     post: 'UI设计师',
     jobs: [
       {
-        content: '电商小程序设计',
+        content: '绘睡APP、绘睡Web',
         details: [
-          '产品：前期 0-1 产品原型的搭建，负责小程序的前期售后服务板块需求调研',
-          '设计：独立负责小程序视觉UI设计以及用户体验，为新产品提供创意方案，',
-          '设计：独立负责小程序视觉UI设计以及用户体验，为新产品提供创意方案，',
-          '设计：独立负责小程序视觉UI设计以及用户体验，为新产品提供创意方案，',
+          '负责公司移动端项目绘睡App 0-1用户及竞品分析，负责完成绘睡企业Web端界面设计，制定项目规范及设计标准，完成界面设计及落地；',
+          '对业内交互、设计的流行趋势进行收集分析，对用户体验提供创新想法和思路，不断优化产品，承担项目及公司常规设计；',
+          '负责参与项目中各种交互界面、图标、LOGO、按钮等相关元素的设计与制作，以及公司运营平面相关设计；',
         ]
       }
     ]
@@ -179,7 +179,7 @@ const experienceList = [
         <div class="card left">
 
           <div class="title ">联系：</div>
-          <div class="item">邮箱：<span @click="copyText" class="underline-dashed">bjl924143589@163.com</span></div>
+          <div class="item">邮箱：<span @click="copy" class="underline-dashed">bjl924143589@163.com</span></div>
           <div class="item">微信：<span class="underline-dashed" @mouseenter="showQRCode"
               @mouseleave="hideQRCode">baojinlong01</span>
             <transition name="fade">
@@ -351,7 +351,6 @@ const experienceList = [
 
 .title {
   height: 23px;
-  font-family: OPPO Sans, OPPO Sans;
   font-weight: 500;
   font-size: 18px;
   color: #FFFFFF;
@@ -364,7 +363,6 @@ const experienceList = [
 .text {
   margin-top: 24px;
   width: 689px;
-  font-family: OPPO Sans, OPPO Sans;
   font-weight: 400;
   font-size: 14px;
   color: #94A3B8;
@@ -390,7 +388,6 @@ const experienceList = [
 .label {
   margin-top: 16px;
   height: 21px;
-  font-family: SF Pro Display, SF Pro Display;
   font-weight: 600;
   font-size: 14px;
   color: #0EA5E9;
@@ -425,7 +422,6 @@ const experienceList = [
 
 .item {
   margin-top: 14px;
-  font-family: OPPO Sans, OPPO Sans;
   font-weight: 400;
   font-size: 14px;
   color: #94A3B8;
@@ -484,7 +480,6 @@ const experienceList = [
   width: 266px;
   height: 24px;
   flex-shrink: 0;
-  font-family: OPPO Sans, OPPO Sans;
   font-weight: 500;
   font-size: 16px;
   color: #FFFFFF;
@@ -503,7 +498,6 @@ const experienceList = [
 .company {
   width: 266px;
   flex-shrink: 0;
-  font-family: OPPO Sans, OPPO Sans;
   font-weight: 500;
   font-size: 16px;
   color: #FFFFFF;
@@ -521,7 +515,6 @@ const experienceList = [
 
 .post {
   margin-top: 8px;
-  font-family: OPPO Sans, OPPO Sans;
   font-weight: 400;
   font-size: 14px;
   color: rgba(148, 163, 184, 0.8);
@@ -532,7 +525,6 @@ const experienceList = [
 }
 
 .content {
-  font-family: OPPO Sans, OPPO Sans;
   font-weight: bold;
   font-size: 16px;
   color: #E3E4E6;
@@ -543,7 +535,6 @@ const experienceList = [
 }
 
 .details {
-  font-family: OPPO Sans, OPPO Sans;
   font-weight: 400;
   font-size: 14px;
   color: #768397;

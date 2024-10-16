@@ -18,7 +18,6 @@ const style = props.styles || {}
     box-shadow: inset 0px -46px 106px 0px rgba(255, 255, 255, 0.05), inset 0px 1px 0px 0px rgba(255, 255, 255, 0.25);
     border-radius: 49px 49px 49px 49px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    font-family: PingFang SC, PingFang SC;
     font-weight: 500;
     font-size: 24px;
     color: #FFFFFF;

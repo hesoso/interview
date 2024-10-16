@@ -3,48 +3,61 @@ import { ref, computed } from 'vue';
 import Button from '@/components/Button.vue'
 import MobileTab from './components/MobileTab.vue'
 import MobileFooter from './components/MobileFooter.vue'
-import { downloadPDF } from '@/utils/index'
+import { downloadPDF, getDownloadProgress, copyText } from '@/utils/index'
 
-const copied = ref(false);
-// 复制文本的函数
-const copyText = async (text) => {
-  try {
-    // 使用 Clipboard API 复制文本
-    await navigator.clipboard.writeText(text);
-    copied.value = true;
+const copied = ref(false)
 
-    // 复制成功后，设置 2 秒后隐藏提示
-    setTimeout(() => {
-      copied.value = false;
-    }, 2000);
-  } catch (err) {
-    console.error("复制失败：", err);
-  }
-};
-
-const isQRCodeVisible = ref(false);
-const handleAddWx = () => {
-  isQRCodeVisible.value = true;
+const copy = async (text) => {
+  copyText(text, () => {
+    copied.value = true
+    setTimeout(() => copied.value = false, 2000)
+  })
 }
 
-const downloadResumeVisible = ref(true)
+const isQRCodeVisible = ref(false)
+const handleAddWx = () => {
+  isQRCodeVisible.value = true
+}
+
+const resumeUrl = "/resume.pdf"
+const peojectUrl = "/project.pdf"
+
+const downloadResumeVisible = ref(false)
 const downloadResumeProgress = ref(0)
+
+const onResumeProgress = (progress) => {
+    if (progress >= 100 || !progress) {
+      downloadResumeVisible.value = false
+      downloadResumeProgress.value = 0
+    } else if (progress >= 0) {
+      downloadResumeVisible.value = true
+      downloadResumeProgress.value = progress
+    }
+}
+
+getDownloadProgress(resumeUrl, onResumeProgress)
+
 const downloadResume = () => {
-  downloadResumeVisible.value = true
-  downloadPDF("/resume.pdf", (progress) => {
-    if (progress == 100) downloadResumeVisible.value = false
-    downloadResumeProgress.value = progress
-  })
+  downloadPDF(resumeUrl, onResumeProgress)
 }
 
 const downloadProjectVisible = ref(false)
 const downloadProjectProgress = ref(0)
+
+const onPeojectProgress = (progress) => {
+    if (progress >= 100 || !progress) {
+        downloadProjectVisible.value = false
+        downloadProjectProgress.value = 0
+    } else if (progress >= 0) {
+        downloadProjectVisible.value = true
+        downloadProjectProgress.value = progress
+    }
+}
+
+getDownloadProgress(peojectUrl, onPeojectProgress)
+
 const downloadProject = () => {
-  downloadProjectVisible.value = true
-  downloadPDF("/project.pdf", (progress) => {
-    if (progress == 100) downloadProjectVisible.value = false
-    downloadProjectProgress.value = progress
-  })
+  downloadPDF(peojectUrl, onPeojectProgress)
 }
 
 const experienceList = [
@@ -151,8 +164,8 @@ const handleExperience = (index) => {
     </div>
     <div class="card mx16">
       <div class="title">联系：</div>
-      <div class="item">邮箱：<span @click="copyText('bjl924143589@163.com')" class="underline-dashed">bjl924143589@163.com</span></div>
-      <div class="item">微信：<span @click="copyText('baojinlong01')" class="underline-dashed">baojinlong01</span></div>
+      <div class="item">邮箱：<span @click="copy('bjl924143589@163.com')" class="underline-dashed">bjl924143589@163.com</span></div>
+      <div class="item">微信：<span @click="copy('baojinlong01')" class="underline-dashed">baojinlong01</span></div>
     </div>
     <div class="card mx16">
       <div class="title">简历 & 作品集：</div>
@@ -275,6 +288,9 @@ const handleExperience = (index) => {
 .mobile_resume_wrapper {
   position: relative;
   padding-top: 181px;
+  background-image: url('/images/light2.png');
+  background-size: 100% 99px;
+  background-repeat: no-repeat;
 }
 
 .mx16 {
@@ -302,7 +318,6 @@ const handleExperience = (index) => {
 
 .name {
   height: 38px;
-  font-family: OPPO Sans, OPPO Sans;
   font-weight: bold;
   font-size: 32px;
   line-height: 38px;
@@ -318,7 +333,6 @@ const handleExperience = (index) => {
 .label {
   margin-top: 10px;
   height: 21px;
-  font-family: SF Pro Display, SF Pro Display;
   font-weight: 600;
   font-size: 12px;
   color: #0EA5E9;
@@ -352,7 +366,6 @@ const handleExperience = (index) => {
 }
 
 .title {
-  font-family: OPPO Sans, OPPO Sans;
   font-weight: 500;
   font-size: 18px;
   color: #FFFFFF;
@@ -364,7 +377,6 @@ const handleExperience = (index) => {
 
 .introduce_item {
   margin-top: 24px;
-  font-family: OPPO Sans, OPPO Sans;
   font-weight: 400;
   font-size: 14px;
   color: rgba(148,163,184,0.91);
@@ -385,7 +397,6 @@ const handleExperience = (index) => {
 
 .item {
   margin-top: 14px;
-  font-family: OPPO Sans, OPPO Sans;
   font-weight: 400;
   font-size: 14px;
   color: #94A3B8;
@@ -432,7 +443,6 @@ const handleExperience = (index) => {
   width: 48%;
 }
 .skill_title {
-  font-family: OPPO Sans, OPPO Sans;
   font-weight: bold;
   font-size: 14px;
   color: #E3E4E6;
@@ -468,7 +478,6 @@ const handleExperience = (index) => {
   margin-right: 4px;
 }
 .time {
-  font-family: OPPO Sans, OPPO Sans;
   font-weight: 500;
   font-size: 16px;
   color: #FFFFFF;
@@ -478,7 +487,6 @@ const handleExperience = (index) => {
   text-transform: none;
 }
 .post {
-  font-family: OPPO Sans, OPPO Sans;
   font-weight: 500;
   font-size: 14px;
   color: #474760;
@@ -497,7 +505,6 @@ const handleExperience = (index) => {
 }
 .exp_company_name {
   margin: 0 24px 0 8px;
-  font-family: OPPO Sans, OPPO Sans;
   font-weight: 500;
   font-size: 16px;
   color: #FFFFFF;
@@ -514,7 +521,6 @@ const handleExperience = (index) => {
   margin-top: 32px;
 }
 .exp_jobs_name {
-  font-family: OPPO Sans, OPPO Sans;
   font-weight: bold;
   font-size: 14px;
   color: #E3E4E6;
@@ -527,7 +533,6 @@ const handleExperience = (index) => {
   position: relative;
   margin-top: 16px;
   padding-left: 20px;
-  font-family: OPPO Sans, OPPO Sans;
   font-weight: 400;
   font-size: 14px;
   color: #768397;

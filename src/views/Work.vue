@@ -5,7 +5,7 @@ import Footer from './components/Footer.vue'
 import WorkCard from './components/WorkCard.vue'
 import Project from './components/Project.vue'
 import { onMounted, onBeforeUnmount, ref } from 'vue'
-import { downloadPDF } from '@/utils/index'
+import { downloadPDF, getDownloadProgress } from '@/utils/index'
 import Atropos from 'atropos';
 import 'atropos/css'
 
@@ -14,7 +14,6 @@ const projectVisible = ref(false);
 const setProjectVisible = (flag = true) => {
     projectVisible.value = flag
 }
-
 
 
 const isButtonVisible = ref(false);
@@ -89,15 +88,25 @@ onBeforeUnmount(() => {
     window.removeEventListener('scroll', handleScroll);
 });
 
+const peojectUrl = "/project.pdf"
 
 const downloadProjectVisible = ref(false)
 const downloadProjectProgress = ref(0)
-const downloadProject = () => {
-    downloadProjectVisible.value = true
-    downloadPDF("/project.pdf", (progress) => {
-        if (progress == 100) downloadProjectVisible.value = false
+
+const onPeojectProgress = (progress) => {
+    if (progress >= 100 || !progress) {
+        downloadProjectVisible.value = false
+        downloadProjectProgress.value = 0
+    } else if (progress >= 0) {
+        downloadProjectVisible.value = true
         downloadProjectProgress.value = progress
-    })
+    }
+}
+
+getDownloadProgress(peojectUrl, onPeojectProgress)
+
+const downloadProject = () => {
+    downloadPDF(peojectUrl, onPeojectProgress)
 }
 
 const workList = [
@@ -274,7 +283,6 @@ const workList = [
     padding-left: 24px;
     width: 374px;
     height: 36px;
-    font-family: OPPO Sans, OPPO Sans;
     font-weight: 400;
     font-size: 14px;
     color: #94A3B8;
@@ -331,7 +339,6 @@ const workList = [
     background: #32B971;
     border-radius: 0px 11px 11px 9px;
 
-    font-family: Alibaba PuHuiTi 3.0, Alibaba PuHuiTi 30;
     font-weight: normal;
     font-size: 14px;
     color: #FFFFFF;
@@ -345,7 +352,6 @@ const workList = [
     margin-top: 96px;
     width: 689px;
     height: 23px;
-    font-family: OPPO Sans, OPPO Sans;
     font-weight: 500;
     font-size: 18px;
     color: #FFFFFF;
@@ -366,7 +372,6 @@ const workList = [
 .label {
     margin-top: 16px;
     height: 21px;
-    font-family: SF Pro Display, SF Pro Display;
     font-weight: 600;
     font-size: 14px;
     color: #0EA5E9;

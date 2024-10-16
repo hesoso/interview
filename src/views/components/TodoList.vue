@@ -82,7 +82,6 @@ const eduInfo = {
 
 .header input {
     font-size: 22px;
-    font-family: Inter, Inter;
     font-weight: 400;
     line-height: 33px;
     text-align: left;
@@ -93,7 +92,6 @@ const eduInfo = {
 .title {
     padding-left: 22px;
     height: 49px;
-    font-family: Inter, Inter;
     font-weight: normal;
     font-size: 18px;
     color: rgba(255, 255, 255, 0.6);
@@ -113,7 +111,6 @@ const eduInfo = {
 .banner .name {
     width: 511px;
     height: 34px;
-    font-family: PingFang SC, PingFang SC;
     font-weight: 600;
     font-size: 24px;
     line-height: 28px;
@@ -124,7 +121,6 @@ const eduInfo = {
 
 .banner .info {
     width: 350px;
-    font-family: OPPO Sans, OPPO Sans;
     font-weight: 500;
     font-size: 14px;
     color: rgba(255, 255, 255, 0.4);
@@ -154,7 +150,6 @@ const eduInfo = {
 }
 
 .footer .right .enter {
-    font-family: Inter, Inter;
     font-weight: 500;
     font-size: 18px;
     color: #FFFFFF;
@@ -170,7 +165,6 @@ const eduInfo = {
 
 .footer .right .actions {
     margin-left: 35px;
-    font-family: Inter, Inter;
     font-weight: 500;
     font-size: 18px;
     color: rgba(255, 255, 255, 0.6);
@@ -186,7 +180,6 @@ const eduInfo = {
 
 .footer .right .actions .iconk {
     margin-left: 3px;
-    font-family: Inter, Inter;
     font-weight: normal;
     font-size: 15px;
     color: rgba(255, 255, 255, 0.6);

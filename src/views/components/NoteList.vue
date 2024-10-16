@@ -50,7 +50,6 @@ const noteList = [
   height: 11px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 2px 2px 2px 2px;
-  font-family: Inter, Inter;
   font-weight: 400;
   font-size: 7px;
   color: rgba(255, 255, 255, 0.5);
@@ -63,7 +62,6 @@ const noteList = [
 }
 
 .header input {
-  font-family: Inter, Inter;
   font-weight: 400;
   font-size: 11px;
   color: rgba(180, 188, 208, 0.6);

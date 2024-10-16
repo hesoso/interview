@@ -78,7 +78,6 @@ const info = props.info
 
 .title {
   margin-left: 8px;
-  font-family: OPPO Sans, OPPO Sans;
   font-weight: 400;
   font-size: 14px;
   color: #969799;
@@ -91,7 +90,6 @@ const info = props.info
 .desc {
   margin-top: 12px;
   width: 200px;
-  font-family: OPPO Sans, OPPO Sans;
   font-weight: 400;
   font-size: 14px;
   color: rgba(148,163,184,0.9);

@@ -25,7 +25,7 @@ const info = props.info
 .workcard_wrapper {
     padding: 1px;
     position: relative;
-    border-radius: 40px;
+    border-radius: 24px;
     background: linear-gradient(180deg, #1A1B2A 0%, #0F1120 100%);
 }
 
@@ -45,7 +45,7 @@ const info = props.info
 
 .border_box {
     background: linear-gradient(180deg, #1A1B2A 0%, #0F1120 100%);
-    border-radius: 39px;
+    border-radius: 23px;
     overflow: hidden;
 }
 
@@ -53,9 +53,9 @@ const info = props.info
     position: absolute;
     right: 32px;
     bottom: 32px;
-    width: 40px;
-    height: 40px;
-    border-radius: 40px;
+    width: 36px;
+    height: 36px;
+    border-radius: 36px;
     background: #080A19;
     border: 2px solid rgba(255, 255, 255, 0.1);
     color: #969799;
@@ -70,18 +70,18 @@ const info = props.info
 .img {
     width: 100%;
     height: 203px;
-    border-radius: 32px 32px 0 0;
+    border-radius: 24px 24px 0 0;
     transition: transform 0.3s ease;
 }
 
 .info {
-    padding: 29px 32px 32px 32px;
+    padding: 24px;
 }
 
 
 .label {
-    padding-left: 3px;
-    width: 178px;
+    display: inline-flex;
+    padding: 0 12px 0 3px;
     height: 28px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 28px;
@@ -108,7 +108,7 @@ const info = props.info
 
 .desc {
     margin-top: 12px;
-    width: 250px;
+    width: 80%;
     font-weight: 500;
     font-size: 15px;
     color: rgba(255, 255, 255, 0.3);

@@ -16,9 +16,7 @@ import MobileHeader from '@/views/components/MobileHeader.vue'
     </div>
   </template>
   <template v-else>
-    <div class="mobile_header">
       <MobileHeader />
-    </div>
   </template>
   <RouterView style="width: 100vw" />
 </template>
@@ -36,14 +34,6 @@ import MobileHeader from '@/views/components/MobileHeader.vue'
   z-index: 3;
 }
 
-.mobile_header {
-  position: fixed;
-  left: 0;
-  width: 100vw;
-  background-color: rgba(0, 0, 0, 0.01);
-  z-index: 3;
-}
-
 .logo {
   position: absolute;
   left: 50%;
@@ -58,7 +48,6 @@ nav {
   width: 100%;
   font-size: 12px;
   text-align: center;
-  font-family: OPPO Sans-Bold;
 }
 
 nav a.router-link-exact-active {
