@@ -29,17 +29,11 @@ const info = props.info
     background: linear-gradient(180deg, #1A1B2A 0%, #0F1120 100%);
 }
 
-.workcard_wrapper:hover {
-    background: linear-gradient(to bottom right,
-            rgba(255, 255, 255, 0.5),
-            rgba(255, 255, 255, 0.1)) !important;
-}
-
-.workcard_wrapper:hover img {
+.workcard_wrapper:active img {
     transform: scale(1.1);
 }
 
-.workcard_wrapper:hover .btn {
+.workcard_wrapper:active .btn {
     background: #1A1C2A;
 }
 

@@ -12,7 +12,7 @@ const info = props.info
             <div class="title">{{ info.title }}</div>
             <div class="desc">{{ info.desc }}</div>
         </div>
-        <span class="right df ai_center">open</span>
+        <span class="right df ai_center">{{ info.time }}</span>
     </div>
 </template>
 

@@ -7,7 +7,7 @@ const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/
 const lazyImport = (comp) => {
   return () => import(`../views/${comp}.vue`)
 }
-console.log('isMobile', isMobile)
+
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
@@ -36,6 +36,14 @@ const router = createRouter({
       meta: {
         showNav: true,
         isMobile
+      }
+    },
+    {
+      path: '/project',
+      name: 'project',
+      component: import(`../views/components/Project.copy.vue`),
+      meta: {
+        showNav: true,
       }
     },
     // {

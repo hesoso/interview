@@ -6,16 +6,19 @@ const projectList = [
         src: '/images/company_1.png',
         title: '北京日上集团',
         desc: '小程序设计｜B端设计｜用户体验设计',
+        time: '2023. 02 - 2024. 10',
     },
     {
         src: '/images/company_2.png',
         title: '北京造化科技有限公司',
         desc: 'APP设计｜Web设计｜B端设计｜运营设计',
+        time: '2021. 07 - 2023. 01',
     },
     {
         src: '/images/company_3.png',
         title: '上海芳欣科技有限公司',
         desc: 'APP设计｜Web设计',
+        time: '2019. 07 - 2021. 07'
     }
 ]
 const eduInfo = {

@@ -100,7 +100,7 @@ const downloadProject = () => {
 
 const experienceList = [
   {
-    time: '2023. 01 ～ 至今',
+    time: '2023. 02 ～ 2024. 10',
     company: '北京日上集团',
     post: 'UI/UE设计师（IOT部）',
     jobs: [
@@ -134,7 +134,7 @@ const experienceList = [
     ]
   },
   {
-    time: '2019. 03 ～ 2021. 07',
+    time: '2019. 07 ～ 2021. 07',
     company: '上海芳欣科技有限公司',
     post: 'UI设计师',
     jobs: [
