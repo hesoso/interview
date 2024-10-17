@@ -38,14 +38,6 @@ const router = createRouter({
         isMobile
       }
     },
-    {
-      path: '/project',
-      name: 'project',
-      component: import(`../views/components/Project.copy.vue`),
-      meta: {
-        showNav: true,
-      }
-    },
     // {
     //   path: '/mobile/home',
     //   name: 'MobileHome',

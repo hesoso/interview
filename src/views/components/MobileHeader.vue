@@ -43,10 +43,11 @@ const handleChangeExpand = () => expand.value = !expand.value
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(25px);
+  padding-bottom: 10px;
 }
 
 .top_box {
-  padding: 56px 16px 0;
+  padding: 28px 16px 0;
 }
 
 .nav_tab_box {
@@ -54,6 +55,7 @@ const handleChangeExpand = () => expand.value = !expand.value
   border-radius: 27px 27px 0 0;
   padding: 16px;
   background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .half-radius {
@@ -82,6 +84,8 @@ const handleChangeExpand = () => expand.value = !expand.value
   height: calc(100% - 128px);
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 0 0 27px 27px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: none;
 }
 
 .nav_item {

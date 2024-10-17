@@ -181,7 +181,7 @@ const skillList = [
 .bg_bottom_right {
   position: absolute;
   right: 0;
-  bottom: 0;
+  top: 30px;
   width: 375px;
   height: 223px;
   background-image: url('/images/mobile/bg_bottom_right.png');

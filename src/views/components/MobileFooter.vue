@@ -9,16 +9,14 @@ const info = props.info
             <img class="icon" src="/images/logo_2.png" draggable="false">
             <span>Barry’s Personal Designed blog</span>
         </div>
-        <div class="bottom df">
-            <span class="left">Interest is the Best Teacher, Designing with Purpose, Crafting with Precision</span>
-            <span class="right">© 2024 Design by Barry | 京ICP备2024089195号-1</span>
-        </div>
+        <div class="middle">Interest is the Best Teacher, Designing with Purpose, Crafting with Precision</div>
+        <div class="bottom">© 2024 Design by Barry | 京ICP备2024089195号-1</div>
     </div>
 </template>
 
 <style scoped>
 .modile_footer_wrapper {
-    padding: 24px 16px;
+    padding: 16px 16px 24px;
     width: 100%;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     background-color: #000;
@@ -41,27 +39,17 @@ const info = props.info
     height: 12px;
 }
 
-.right {
+.middle, .bottom {
+    margin-top: 10px;
     font-weight: 400;
     font-size: 10px;
     color: rgba(180, 188, 208, 0.6);
     line-height: 12px;
     letter-spacing: 1px;
-    text-align: right;
     font-style: normal;
     text-transform: none;
     align-items: flex-end;
 }
 
-.left {
-    font-weight: 400;
-    font-size: 10px;
-    color: rgba(180,188,208,0.6);
-    line-height: 12px;
-    letter-spacing: 1px;
-    text-align: left;
-    font-style: normal;
-    text-transform: none;
-}
 
 </style>

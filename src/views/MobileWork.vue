@@ -152,7 +152,7 @@ const tabList = ['APP / 小程序', 'Web / B端', '平面 / 其他']
 .mobile_work_wrapper {
     position: relative;
     margin: 0 auto;
-    padding: 157px 0 73px;
+    padding: 120px 0 30px;
     background-image: url('/images/light2.png');
     background-size: 100% 99px;
     background-repeat: no-repeat;

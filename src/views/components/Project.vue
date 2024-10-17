@@ -82,7 +82,7 @@ const imgList = Array.from(Array(40)).map((_, index) => {
 
 <style scoped>
 .layer {
-  position: fixed;
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
@@ -103,6 +103,7 @@ const imgList = Array.from(Array(40)).map((_, index) => {
   border-radius: 24px 24px 0 0;
   backdrop-filter: blur(25px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
 }
 
 .title {
