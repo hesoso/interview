@@ -5,7 +5,6 @@ import TodoList from './components/TodoList.vue'
 import ShowTime from './components/ShowTime.vue'
 import Footer from './components/Footer.vue'
 import { useRouter } from 'vue-router'
-import { onMounted } from 'vue'
 const router = useRouter()
 
 // 定义播放音效的函数
@@ -18,26 +17,6 @@ const handleClick = () => {
 
   router.push({ path: 'work' })
 }
-
-// 图片列表
-const imgList = Array.from(Array(40)).map((_, index) => {
-  return `/images/project/p${index + 1}.jpg`
-})
-
-const preloadImages = (images) => {
-  images.forEach(imageUrl => {
-    const img = new Image();
-    img.src = imageUrl;  // 提前加载图片
-    img.onload = () => {
-      console.log(`${imageUrl} 预加载完成`);
-    };
-    img.onerror = () => {
-      console.log(`${imageUrl} 加载失败`);
-    };
-  });
-}
-
-onMounted(() => preloadImages(imgList))
 
 
 </script>
