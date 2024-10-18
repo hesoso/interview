@@ -18,7 +18,7 @@ import MobileHeader from '@/views/components/MobileHeader.vue'
   <template v-else>
       <MobileHeader />
   </template>
-  <RouterView style="width: 100vw" />
+  <RouterView />
 </template>
 
 <style scoped>

@@ -44,7 +44,7 @@ const eduInfo = {
                 <div class="title">教育背景</div>
                 <TodoItem :info="eduInfo" />
                 <div class="footer df ai_center">
-                    <img class="left" src="/images/logo_2.png" draggable="false">
+                    <img class="left" src="/images/logo_2.svg" draggable="false">
                     <div class="right df">
                         <div class="enter df">
                             <span>Open</span>

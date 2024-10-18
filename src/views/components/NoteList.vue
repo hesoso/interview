@@ -3,19 +3,19 @@ import NoteItem from './NoteItem.vue'
 
 const noteList = [
   {
-    icon: '/images/logo_2.png',
+    icon: '/images/logo_2.svg',
     desc: 'Figma 实用插件整理',
   },
   {
-    icon: '/images/logo_2.png',
+    icon: '/images/logo_2.svg',
     desc: 'AIGC关键词整理',
   },
   {
-    icon: '/images/logo_2.png',
+    icon: '/images/logo_2.svg',
     desc: 'Design Token与前端的配合',
   },
   {
-    icon: '/images/logo_2.png',
+    icon: '/images/logo_2.svg',
     desc: '设计文章｜灵感参考',
   },
 ]

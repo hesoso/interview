@@ -2,6 +2,7 @@
 import Button from '@/components/Button.vue'
 import MobileFooter from './components/MobileFooter.vue'
 import MobileWorkCard from './components/MobileWorkCard.vue'
+import MobileProject from './components/MobileProject.vue'
 import MobileTab from './components/MobileTab.vue'
 import { ref, computed } from 'vue'
 import { downloadPDF, getDownloadProgress } from '@/utils/index'
@@ -25,6 +26,12 @@ getDownloadProgress(peojectUrl, onPeojectProgress)
 
 const downloadProject = () => {
     downloadPDF(peojectUrl, onPeojectProgress)
+}
+
+const projectVisible = ref(false);
+
+const setProjectVisible = (flag = true) => {
+    projectVisible.value = flag
 }
 
 const workList = [
@@ -115,10 +122,11 @@ const tabList = ['APP / 小程序', 'Web / B端', '平面 / 其他']
 
 <template>
     <div class="mobile_work_wrapper">
+        <MobileProject v-if="projectVisible" @close="setProjectVisible" />
         <div class="top dfc ai_center">
             <div class="work_logo">Work</div>
             <div class="introduce">为了节省您的宝贵时间，这里特地准备了一份作品集，还从C端、B端区分做成了相应的栏目🫶🏻</div>
-            <img class="banner" src="/images/project/p1.jpg" draggable="false">
+            <img @click="setProjectVisible" class="banner" src="/images/project/p1.jpg" draggable="false">
             <div class="btn df" style="position: relative;">
                 <Button @click="downloadProject" :styles="{
                     width: '134px',

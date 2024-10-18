@@ -127,8 +127,8 @@ const imgList = Array.from(Array(40)).map((_, index) => {
   position: fixed;
   top: 0;
   bottom: 0;
-  left: 0;
-  right: 0;
+  left: 16px;
+  right: 16px;
   z-index: 4;
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(20px);
@@ -140,12 +140,11 @@ const imgList = Array.from(Array(40)).map((_, index) => {
   margin: 0 auto;
   max-width: 1091px;
   height: calc(100% - 20px);
-  padding: 32px;
+  padding: 16px;
   background: rgba(0, 2, 9, 0.8);
   border-radius: 24px;
   backdrop-filter: blur(25px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  /* overflow: hidden; */
 }
 
 .title {
@@ -155,13 +154,13 @@ const imgList = Array.from(Array(40)).map((_, index) => {
 
 .title img {
   margin-bottom: 10px;
-  width: 266px;
-  height: 63px;
+  width: 140px;
+  height: 32px;
 }
 
 .image_box {
   overflow: hidden;
-  height: calc(100% - 82px);
+  height: calc(100% - 52px);
 }
 .image_list {
   height: 100%;
@@ -175,8 +174,8 @@ const imgList = Array.from(Array(40)).map((_, index) => {
 
 .img_item {
   cursor: pointer;
-  margin-bottom: 16px;
-  border-radius: 24px;
+  margin-bottom: 10px;
+  border-radius: 16px;
   overflow: hidden;
   width: 100%;
 }
@@ -190,18 +189,18 @@ const imgList = Array.from(Array(40)).map((_, index) => {
 .close {
   cursor: pointer;
   position: absolute;
-  right: 32px;
-  top: 32px;
-  width: 40px;
-  height: 40px;
+  right: 16px;
+  top: 16px;
+  width: 20px;
+  height: 20px;
   background: #151517;
   border-radius: 50%;
   border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .close .icon {
-  width: 18px;
-  height: 18px;
+  width: 12px;
+  height: 12px;
 }
 
 .top {

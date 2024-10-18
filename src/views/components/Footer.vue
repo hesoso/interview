@@ -6,7 +6,7 @@ const info = props.info
 <template>
     <div class="footer_wrapper df">
         <div class="left df ai_center">
-            <img class="icon" src="/images/logo_2.png" draggable="false">
+            <img class="icon" src="/images/logo_2.svg" draggable="false">
             <span>Barry’s Personal Designed blog</span>
         </div>
         <div class="right dfc">
