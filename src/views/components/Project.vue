@@ -1,5 +1,9 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
+
+const props = defineProps(['topSrc', 'imgRange'])
+const topSrc = props.topSrc
+const imgRange = props.imgRange
 
 const emit = defineEmits(['close']);
 const scrollArea = ref(null)
@@ -7,6 +11,18 @@ const showButton = ref(false)
 const isImageOpen = ref(false)
 const selectedImage = ref(null)
 
+const imgList = computed(() => {
+  if (imgRange?.length) {
+    const [start, end] = imgRange
+    return Array.from(Array(end - start + 1)).map((_, index) => {
+      return `/images/project/p${start + index}.jpg`
+    })
+  } else {
+    return Array.from(Array(55)).map((_, index) => {
+      return `/images/project/p${index + 1}.jpg`
+    })
+  }
+})
 
 // 图片懒加载的自定义指令
 const vLazyLoad = {
@@ -71,11 +87,6 @@ const scrollToTop = () => {
   }
 }
 
-// 图片列表
-const imgList = Array.from(Array(40)).map((_, index) => {
-  return `/images/project/p${index + 1}.jpg`
-})
-
 </script>
 
 <template>
@@ -90,9 +101,9 @@ const imgList = Array.from(Array(40)).map((_, index) => {
       <div class="close df_center" @click="emit('close', false)">
         <img class="icon" src="/images/icon_close.png" draggable="false">
       </div>
-
       <div class="image_box">
         <div class="image_list" ref="scrollArea">
+          <img v-if="topSrc" class="img_item" :src="topSrc" draggable="false">
           <img
             class="img_item"
             v-for="(item, index) in imgList.slice(0, 3)"

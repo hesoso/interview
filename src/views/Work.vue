@@ -28,12 +28,20 @@ const preloadImages = (images) => {
   });
 }
 
-
-
+const topSrc = ref(null)
+const imgRange = ref([])
 const projectVisible = ref(false);
-
 const setProjectVisible = (flag = true) => {
+    topSrc.value = null
+    imgRange.value = []
     projectVisible.value = flag
+}
+
+const showProject = (val) => {
+    if (!val.imgRange) return
+    imgRange.value = val.imgRange
+    topSrc.value = val.topSrc
+    projectVisible.value = true
 }
 
 
@@ -132,73 +140,61 @@ const downloadProject = () => {
     downloadPDF(peojectUrl, onPeojectProgress)
 }
 
+
+
 const workList = [
     {
         src: '/images/p1.png',
         tag: 'A',
-        title: '组件设计｜规范搭建',
-        desc: '熟悉设计原则、设计系统，有组件 设计、规范搭建和维护经验'
+        title: '日上集团',
+        desc: '日上门业启动了门业、师傅端、录单端、后端在内的四端联合开发项目',
+        imgRange: [4, 26],
+        topSrc: '/images/project/top_1.png'
     },
     {
         src: '/images/p2.png',
         tag: 'B',
-        title: '产品设计｜UI设计',
-        desc: '从前期产品原型到后期UI落地 全链路产品构建'
+        title: '造化科技',
+        desc: '为当代中国创造摩登明艳、精致的生活万物，把正员设计，带入大众真实生活',
+        imgRange: [27, 32],
+        topSrc: '/images/project/top_2.png'
     },
     {
         src: '/images/p3.png',
         tag: 'C',
-        title: 'AIGC产品的运用',
-        desc: '目前热火的AIGC产品，包括SD、MJ 都已经熟练掌握'
+        title: 'Web设计',
+        desc: '致力于打造直观且引人入胜的网站，为用户提供卓越的浏览体验',
+        imgRange: [45, 48],
+        topSrc: '/images/project/top_3.png'
     },
     {
         src: '/images/p4.png',
         tag: 'D',
-        title: '平面设计能力',
-        desc: '可以独立完成插画工作，以及参与产品 前期界面视觉探索和DEMO实现'
+        title: 'B端设计',
+        desc: '熟悉设计原则、设计系统，有利用组件设计、规范搭建和维护经验',
+        imgRange: [34, 43],
+        topSrc: '/images/project/top_4.png'
     },
     {
         src: '/images/p5.png',
-        tag: 'D',
-        title: '平面设计能力',
-        desc: '可以独立完成插画工作，以及参与产品 前期界面视觉探索和DEMO实现'
+        tag: 'E',
+        title: '平面设计',
+        desc: '能够为各种媒体平台创作引人注目的视觉设计，提升品牌形象和用户体验',
+        imgRange: [50, 54],
+        topSrc: '/images/project/top_5.png'
     },
     {
         src: '/images/p6.png',
-        tag: 'A',
-        title: '组件设计｜规范搭建',
-        desc: '熟悉设计原则、设计系统，有组件 设计、规范搭建和维护经验'
-    },
-    {
-        src: '/images/p7.png',
-        tag: 'B',
-        title: '产品设计｜UI设计',
-        desc: '从前期产品原型到后期UI落地 全链路产品构建'
-    },
-    {
-        src: '/images/p8.png',
-        tag: 'C',
-        title: 'AIGC产品的运用',
-        desc: '目前热火的AIGC产品，包括SD、MJ 都已经熟练掌握'
-    },
-    {
-        src: '/images/p9.png',
-        tag: 'D',
-        title: '平面设计能力',
-        desc: '可以独立完成插画工作，以及参与产品 前期界面视觉探索和DEMO实现'
-    },
-    {
-        src: '/images/p10.png',
-        tag: 'D',
-        title: '平面设计能力',
-        desc: '可以独立完成插画工作，以及参与产品 前期界面视觉探索和DEMO实现'
+        tag: 'F',
+        title: 'Waiting...',
+        desc: `非常期待与您的合作与共建！`
     },
 ]
 </script>
 
 <template>
     <div class="work_wrapper">
-        <Project v-if="projectVisible" @close="setProjectVisible" />
+        <Project v-if="projectVisible" :topSrc="topSrc" :imgRange="imgRange" @close="setProjectVisible" />
         <div class="top df">
             <div class="left df ai_center">
                 <img class="work_logo w100" src="/images/work.png" draggable="false">
@@ -258,7 +254,7 @@ const workList = [
                 <span>UI / UX 设计师</span>
             </div>
             <div class="list_box">
-                <WorkCard v-for="(item, index) in workList" :key="index" :info="item" />
+                <WorkCard @click="showProject(item)" v-for="(item, index) in workList" :key="index" :info="item" />
             </div>
         </div>
     </div>

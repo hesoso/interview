@@ -72,7 +72,7 @@ const scrollToTop = () => {
 }
 
 // 图片列表
-const imgList = Array.from(Array(40)).map((_, index) => {
+const imgList = Array.from(Array(55)).map((_, index) => {
   return `/images/project/p${index + 1}.jpg`
 })
 

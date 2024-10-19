@@ -10,7 +10,7 @@ const info = props.info
                 <img class="img" :src="info.src" draggable="false">
             </div>
             <div class="info">
-                <div class="label df ai_center">
+                <div class="label">
                     <div class="tag df_center">{{ info.tag }}</div>
                     <div class="title">{{ info.title }}</div>
                 </div>
@@ -27,6 +27,7 @@ const info = props.info
     position: relative;
     border-radius: 40px;
     background: linear-gradient(180deg, #1A1B2A 0%, #0F1120 100%);
+    cursor: pointer;
 }
 
 .workcard_wrapper:hover {
@@ -46,6 +47,7 @@ const info = props.info
 .border_box {
     background: linear-gradient(180deg, #1A1B2A 0%, #0F1120 100%);
     border-radius: 39px;
+    height: calc(100% - 1px);
     overflow: hidden;
 }
 
@@ -59,7 +61,6 @@ const info = props.info
     background: #080A19;
     border: 2px solid rgba(255, 255, 255, 0.1);
     color: #969799;
-    cursor: pointer;
 }
 
 
@@ -80,8 +81,9 @@ const info = props.info
 
 
 .label {
-    padding-left: 3px;
-    width: 178px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 13px 0 3px;
     height: 28px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 28px;
@@ -108,9 +110,9 @@ const info = props.info
 
 .desc {
     margin-top: 12px;
-    width: 250px;
+    width: 260px;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 14px;
     color: rgba(255, 255, 255, 0.3);
     line-height: 23px;
     text-align: left;
