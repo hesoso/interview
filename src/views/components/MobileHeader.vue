@@ -55,7 +55,10 @@ const handleChangeExpand = () => expand.value = !expand.value
   border-radius: 27px 27px 0 0;
   padding: 16px;
   background: rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  background-image: linear-gradient(to right, #000, #000),  linear-gradient(to top right, rgba(255,255,255,.4) 0%, rgba(255,255,255,.1) 100%);
 }
 
 .half-radius {
