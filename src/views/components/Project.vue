@@ -143,7 +143,7 @@ const scrollToTop = () => {
   z-index: 4;
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(20px);
-  padding-top: 40px;
+  padding-top: 30px;
 }
 
 .project_wrapper {
@@ -151,7 +151,7 @@ const scrollToTop = () => {
   margin: 0 auto;
   max-width: 1091px;
   height: calc(100% - 20px);
-  padding: 32px;
+  padding: 32px 32px 0 32px;
   background: rgba(0, 2, 9, 0.8);
   border-radius: 24px;
   backdrop-filter: blur(25px);
@@ -182,6 +182,9 @@ const scrollToTop = () => {
 
 .image_list::-webkit-scrollbar {
   display: none;
+}
+.image_list .img_item:last-child {
+  margin-bottom: 24px;
 }
 
 .img_item {
